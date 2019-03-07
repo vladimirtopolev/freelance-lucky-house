@@ -32,13 +32,25 @@ body, #root {
   background: #000000;
 }
 
+// common styles
+.container{
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 1400px;
+}
+
+
+$navbar-vertical-padding: 10px;
 // main view
 .main-view {
   width: 100%;
   height: 100vh;
-  background: yellow;
+  background: #17639d;
+
   &__header {
-    padding-top: 15px;
     padding-bottom: 15px;
   }
 }
@@ -47,17 +59,130 @@ body, #root {
 .navigation {
   @extend .container;
 
-  &__container{
+  &__logo {
+    padding-top: $navbar-vertical-padding;
+  }
+
+  &__container {
     display: flex;
   }
 
   &__bar {
-    padding-left: 20px;
+    padding-left: 50px;
+    flex-grow: 2;
   }
 }
 
 
-.main-navbar{
+.main-navbar {
   display: flex;
   height: 100%;
+  list-style-type: none;
+
+  &__item {
+    margin-right: 30px;
+    position: relative;
+
+
+    &:before {
+      position: absolute;
+      right: -17px;
+      top: 50%;
+      content: '';
+      display: block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: $primary-color;
+      margin-top: $navbar-vertical-padding/2 - 4;
+    }
+
+    &:last-child {
+      &:before {
+        display: none;
+      }
+    }
+  }
+
+  &__link {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bolder;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: $navbar-vertical-padding;
+
+    &:hover {
+      background: $primary-color;
+      color: $secondary-color;
+      text-decoration: none;
+    }
+  }
+}
+
+.navbar-contact {
+  width: 100%;
+  height: 100%;
+  display: flex;
+
+  &__label {
+    width: 50px;
+    height: 100%;
+    position: relative;
+    margin-right: 10px;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 25px;
+      display: block;
+      background: $primary-color;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;;
+      bottom: 0;
+      height: 50px;
+      width: 100%;
+      border-radius: 50%;
+      background: $primary-color;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    z-index: 100;
+    color: #fff;
+    height: 40px;
+    width: 40px;
+    border: 2px solid #fff;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 35px;
+    font-size: 20px;
+    bottom: 5px;
+    left: 5px;
+  }
+
+  &__description {
+    padding-top: $navbar-vertical-padding;
+    color: #fff;
+    font-weight: bold;
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  &__description-item {
+    padding: 5px;
+  }
 }

@@ -24,7 +24,7 @@ class App extends Component {
                             <div className="navigation">
                                 <div className="navigation__container">
                                     <div className="navigation__logo">
-                                        <img alt="logo" src={require('./img/logo.png')} className="logo"/>
+                                        <img alt="logo" src={require('../../img/logo.png')} className="logo"/>
                                     </div>
 
                                     <div className="navigation__bar">
@@ -139,7 +139,7 @@ class App extends Component {
                             <Slider {...settings}>
                                 <div className="portfolio__slide project-slide">
                                     <div className="project-slide__container">
-                                        <div className="project-slide__img" style={{backgroundImage: `url(${require("./img/photo1.jpg")}`}}></div>
+                                        <div className="project-slide__img" style={{backgroundImage: `url(${require("../../img/photo1.jpg")}`}}></div>
                                         <div className="project-slide__description-container">
                                             <div className="project-slide__title">
                                                 Проект 1
@@ -149,7 +149,7 @@ class App extends Component {
                                 </div>
                                 <div className="portfolio__slide project-slide">
                                     <div className="project-slide__container">
-                                        <div className="project-slide__img" style={{backgroundImage: `url(${require("./img/photo2.jpg")}`}}></div>
+                                        <div className="project-slide__img" style={{backgroundImage: `url(${require("../../img/photo2.jpg")}`}}></div>
                                         <div className="project-slide__description-container">
                                             <div className="project-slide__title">
                                                 Проект 1
@@ -159,7 +159,7 @@ class App extends Component {
                                 </div>
                                 <div className="portfolio__slide project-slide">
                                     <div className="project-slide__container">
-                                        <div className="project-slide__img" style={{backgroundImage: `url(${require("./img/photo3.jpg")}`}}></div>
+                                        <div className="project-slide__img" style={{backgroundImage: `url(${require("../../img/photo3.jpg")}`}}></div>
                                         <div className="project-slide__description-container">
                                             <div className="project-slide__title">
                                                 Проект 1
@@ -169,7 +169,7 @@ class App extends Component {
                                 </div>
                                 <div className="portfolio__slide project-slide">
                                     <div className="project-slide__container">
-                                        <div className="project-slide__img" style={{backgroundImage: `url(${require("./img/photo4.jpg")}`}}></div>
+                                        <div className="project-slide__img" style={{backgroundImage: `url(${require("../../img/photo4.jpg")}`}}></div>
                                         <div className="project-slide__description-container">
                                             <div className="project-slide__title">
                                                 Проект 1
@@ -179,7 +179,7 @@ class App extends Component {
                                 </div>
                                 <div className="portfolio__slide project-slide">
                                     <div className="project-slide__container">
-                                        <div className="project-slide__img" style={{backgroundImage: `url(${require("./img/photo5.jpg")}`}}></div>
+                                        <div className="project-slide__img" style={{backgroundImage: `url(${require("../../img/photo5.jpg")}`}}></div>
                                         <div className="project-slide__description-container">
                                             <div className="project-slide__title">
                                                 Проект 1
@@ -204,7 +204,7 @@ class App extends Component {
                             <div className="col-3">
                                 <div className="advantage">
                                     <div className="advantage__label">
-                                        <img className="advantage__img" src={require('./img/advantage03.png')}/>
+                                        <img className="advantage__img" src={require('../../img/advantage03.png')}/>
                                     </div>
                                     <div className="advantage__title">
                                         Разумные цены
@@ -217,7 +217,7 @@ class App extends Component {
                             <div className="col-3">
                                 <div className="advantage">
                                     <div className="advantage__label">
-                                        <img className="advantage__img" src={require('./img/advantage01.png')}/>
+                                        <img className="advantage__img" src={require('../../img/advantage01.png')}/>
                                     </div>
                                     <div className="advantage__title">
                                         Качественные материалы
@@ -230,7 +230,7 @@ class App extends Component {
                             <div className="col-3">
                                 <div className="advantage">
                                     <div className="advantage__label">
-                                        <img className="advantage__img" src={require('./img/advantage04.png')}/>
+                                        <img className="advantage__img" src={require('../../img/advantage04.png')}/>
                                     </div>
                                     <div className="advantage__title">
                                         Опытные строители
@@ -243,7 +243,7 @@ class App extends Component {
                             <div className="col-3">
                                 <div className="advantage">
                                     <div className="advantage__label">
-                                        <img className="advantage__img" src={require('./img/advantage02.png')}/>
+                                        <img className="advantage__img" src={require('../../img/advantage02.png')}/>
                                     </div>
                                     <div className="advantage__title">
                                         Гарантия качества
@@ -283,7 +283,7 @@ class App extends Component {
                         <div className="feedbacks__content row">
                             <div className="feedback col-4">
                                 <div className="feedback__img">
-                                    <img src={require('./img/feedback.jpg')}/>
+                                    <img src={require('../../img/feedback.jpg')}/>
                                 </div>
                                 <div className="feedback__title">Нюппель Леонид</div>
                                 <div className="feedback__content">
@@ -296,7 +296,7 @@ class App extends Component {
                             </div>
                             <div className="feedback col-4">
                                 <div className="feedback__img">
-                                    <img src={require('./img/feedback.jpg')}/>
+                                    <img src={require('../../img/feedback.jpg')}/>
                                 </div>
                                 <div className="feedback__title">Нюппель Леонид</div>
                                 <div className="feedback__content">
@@ -309,7 +309,7 @@ class App extends Component {
                             </div>
                             <div className="feedback col-4">
                                 <div className="feedback__img">
-                                    <img src={require('./img/feedback.jpg')}/>
+                                    <img src={require('../../img/feedback.jpg')}/>
                                 </div>
                                 <div className="feedback__title">Нюппель Леонид</div>
                                 <div className="feedback__content">
@@ -329,7 +329,7 @@ class App extends Component {
                     <div className="footer__container">
                         <div className="footer__header">
                             <div className="footer__logo">
-                                <img alt="logo" src={require('./img/logo-footer.png')} className="logo"/>
+                                <img alt="logo" src={require('../../img/logo-footer.png')} className="logo"/>
                             </div>
                             <div className="footer__socials">
                                 <a href="" className="social social_vk"></a>

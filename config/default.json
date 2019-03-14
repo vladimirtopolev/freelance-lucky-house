@@ -1,0 +1,18 @@
+{
+  "dbConfig": {
+    "host": "mongodb://localhost/admin-panel"
+  },
+  "salt": "$2a$10$vI8aWBnW3fID.ZQ4/zo1G.q1lRps.9cGLcZEiGDMVr5yUP1KUOYTa",
+  "authentication": {
+    "token": {
+      "secret": "mySuperSecretKey",
+      "issuer": "social-logins-spa",
+      "audience": "social-logins-spa"
+    }
+  },
+  "cloudinary": {
+    "cloudName": "dix3v9vzg",
+    "apiKey": "477624425976848",
+    "apiSecret": "RcvBsCwsqc77ty796eE-pbai3pw"
+  }
+}

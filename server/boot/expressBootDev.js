@@ -9,11 +9,8 @@ import path from 'path';
 export default (app, dirname) => {
     // compile client-side on the fly and detect changes
     const webpackConfig = webpackConfigHandler(AVAILABLE_ENVIROMENTS.DEVELOPMENT);
-    _.set(webpackConfig, 'devServer.historyApiFallback', true);
     _.set(webpackConfig, 'output.path', dirname);
 
-    console.log('OUTPUT', webpackConfig.output.publicPath);
-    console.log(webpackConfig);
     const compiler = webpack(webpackConfig);
     app.use(webpackMiddleware(compiler, {
         hot: true,
@@ -22,13 +19,12 @@ export default (app, dirname) => {
     }));
     app.use(webpackHotMiddleware(compiler));
 
-    app.get('*', (req, res, next) => {
-        console.log(compiler.outputFileSystem);
+    app.get('/*', (req, res, next) => {
         compiler.outputFileSystem.readFile(path.join(dirname, 'index.html'), (err, result) => {
             if (err) {
                 return next(err)
             }
-            res.set('content-type', 'text/html')
+            res.set('content-type', 'text/html');
             res.send(result)
             res.end()
         })

@@ -1,0 +1,57 @@
+.UserView {
+  &__header {
+    display: flex;
+    padding: 10px;
+  }
+
+  &__img {
+
+    img {
+      border-radius: 50%;
+      width: 53px;
+      height: 53px;
+      border: 3px solid #fff;
+      display: block;
+    }
+  }
+
+  &__description {
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    flex-grow: 1;
+  }
+
+  &__greeting {
+    color: #BAB8B8;
+    font-size: 14px;
+  }
+
+  &__name {
+    color: #ECF0F1;
+    font-size: 16px;
+  }
+
+  &__chevron {
+    font-size: 12px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    i {
+      &:hover {
+        color: #00acac;
+      }
+    }
+  }
+
+  &__navbar {
+    display: none;
+    border-top: 1px solid  #242a31;
+
+    &_open {
+      display: block;
+    }
+  }
+}

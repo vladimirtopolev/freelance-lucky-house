@@ -109,17 +109,16 @@ class App extends Component {
                                         х заглавных букв, подпоясал инициал за пояс и пустился
                                         в дорогу.
                                     </div>
-                                    <button className="btn btn-primary">Подробнее</button>
                                 </div>
                                 <div className="col-5">
                                     <div className="about-us__slogan-container">
                                         <div className="about-us__slogan">
                                             Работаем с
-                                            <div className="about-us__slogan-highlight-word">2009</div>
+                                            <div className="about-us__slogan-highlight-word">2007</div>
                                         </div>
                                         <div className="about-us__slogan">
                                             Более
-                                            <div className="about-us__slogan-highlight-word">50</div>
+                                            <div className="about-us__slogan-highlight-word">80</div>
                                             проектов
                                         </div>
                                     </div>
@@ -201,7 +200,7 @@ class App extends Component {
                             Преимущества
                         </div>
                         <div className="advantages__content row">
-                            <div className="col-3">
+                            <div className="col-4">
                                 <div className="advantage">
                                     <div className="advantage__label">
                                         <img className="advantage__img" src={require('../../img/advantage03.png')}/>
@@ -210,11 +209,11 @@ class App extends Component {
                                         Разумные цены
                                     </div>
                                     <div className="advantage__content">
-                                        Тут буквадльно пару слов про каждое преимущество
+                                        Собственное лесопильное производство
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-3">
+                            <div className="col-4">
                                 <div className="advantage">
                                     <div className="advantage__label">
                                         <img className="advantage__img" src={require('../../img/advantage01.png')}/>
@@ -223,11 +222,11 @@ class App extends Component {
                                         Качественные материалы
                                     </div>
                                     <div className="advantage__content">
-                                        Тут буквадльно пару слов про каждое преимущество
+                                        Закуп только у производителей
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-3">
+                            <div className="col-4">
                                 <div className="advantage">
                                     <div className="advantage__label">
                                         <img className="advantage__img" src={require('../../img/advantage04.png')}/>
@@ -236,20 +235,7 @@ class App extends Component {
                                         Опытные строители
                                     </div>
                                     <div className="advantage__content">
-                                        ут буквадльно пару слов про каждое преимущество
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-3">
-                                <div className="advantage">
-                                    <div className="advantage__label">
-                                        <img className="advantage__img" src={require('../../img/advantage02.png')}/>
-                                    </div>
-                                    <div className="advantage__title">
-                                        Гарантия качества
-                                    </div>
-                                    <div className="advantage__content">
-                                        Тут буквадльно пару слов про каждое преимущество
+                                        Опыт более 10 лет
                                     </div>
                                 </div>
                             </div>
@@ -267,7 +253,7 @@ class App extends Component {
                                 <div className="subscription__input-container">
                                     <input className="subscription__input" type="text" placeholder="Email"/>
                                     <button className="subscription__btn">
-                                        <i class="fab fa-telegram-plane"></i>
+                                        <i className="fab fa-telegram-plane"></i>
                                     </button>
                                 </div>
                             </div>
@@ -332,17 +318,17 @@ class App extends Component {
                                 <img alt="logo" src={require('../../img/logo-footer.png')} className="logo"/>
                             </div>
                             <div className="footer__socials">
-                                <a href="" className="social social_vk"></a>
+                                <a href="https://vk.com/club50042773" className="social social_vk" target="_blank"></a>
                                 <a href="" className="social social_fb"></a>
                                 <a href="" className="social social_instagram"></a>
                             </div>
                             <div className="footer__contacts">
                                 <div className="footer__item-contact">
-                                    <i class="fa fa-phone footer__item-contact-label" aria-hidden="true"></i>
+                                    <i className="fa fa-phone footer__item-contact-label" aria-hidden="true"></i>
                                     +7 911 404 60 23
                                 </div>
                                 <div className="footer__item-contact">
-                                    <i class="fa fa-envelope footer__item-contact-label" aria-hidden="true"></i>
+                                    <i className="fa fa-envelope footer__item-contact-label" aria-hidden="true"></i>
                                     mail@mail.ru
                                 </div>
                             </div>

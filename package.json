@@ -21,8 +21,10 @@
     "mongoose-unique-validator": "^2.0.2",
     "node-sass": "^4.11.0",
     "normalizr": "^3.3.0",
+    "prop-types": "^15.7.2",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
+    "react-form": "^3.5.7",
     "react-redux": "^6.0.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.5",
@@ -39,7 +41,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "NODE_ENV=development nodemon --watch server --exec babel-node -- server/index.js"
+    "dev": "NODE_ENV=development nodemon --watch server --exec babel-node -- server/index.js",
+    "dev_windows": "set NODE_ENV=development&& nodemon --watch server --exec babel-node -- server/index.js"
   },
   "eslintConfig": {
     "extends": "react-app"

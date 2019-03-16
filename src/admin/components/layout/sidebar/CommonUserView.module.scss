@@ -1,0 +1,132 @@
+.fa{
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+
+}
+
+.navbar {
+  margin: 0;
+  list-style: none;
+
+  &__item {
+    display: block;
+  }
+
+  &__item_chevron {
+    position: relative;
+    &:after{
+      position: absolute;
+      top: 0;
+      right: 10px;
+
+      display: flex;
+      align-items: center;
+      height:32px;
+      width: 10px;
+
+      content: "\f054";
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      font-size: 12px;
+      color: #fff;
+    }
+  }
+
+  &__item_open{
+    &:after{
+      content: "\f078";
+    }
+  }
+
+  &__link {
+    padding: 7px 20px;
+    display: block;
+    color: #a8acb1;
+    text-decoration: none;
+    font-size: 12px;
+
+    &:hover {
+      color: #fff;
+      text-decoration: none;
+      background: #00acac;
+    }
+  }
+
+  &__icon {
+    margin-right: 10px;
+  }
+
+  &_secondary {
+    margin-left: 15px;
+    display: none;
+
+    & .navbar__icon{
+      display: none;
+    }
+
+    & .navbar__item {
+      position: relative;
+
+      &:before {
+        position: absolute;
+        left: 10px;
+        bottom: 0;
+        top: 0;
+        display: block;
+        content: '';
+        width: 2px;
+        background: #242a31;
+        z-index: 100;
+      }
+    }
+
+    & .navbar__item:last-child {
+      &:before {
+        height: 50%;
+      }
+    }
+
+    & .navbar__item:first-child {
+      &:before {
+        top: -10px;
+      }
+    }
+
+    & .navbar__link {
+      position: relative;
+      padding-left: 35px;
+
+      &:before {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        margin-top: -3px;
+        content: '';
+        display: block;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        border: 1px solid #efefef;
+      }
+
+      &:after {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        content: '';
+        width: 10px;
+        height: 2px;
+        background: #242a31;
+        display: block;
+      }
+    }
+  }
+}
+
+.navbar_open{
+  display: block;
+}

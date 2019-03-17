@@ -8,7 +8,7 @@ import AdminLayout from './layout/Layout';
 
 export default () => (
     <Switch>
-        <Route exact path={`/${ADMIN_URL}`} component={AuthenticatedUser(AdminLayout)}/>
         <Route path={`/${ADMIN_URL}/signin`} component={SignIn}/>
+        <Route path={`/${ADMIN_URL}`} component={AuthenticatedUser(AdminLayout)}/>
     </Switch>
 )

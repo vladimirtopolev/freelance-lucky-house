@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 
 import Admin from './admin';
-import Client from './client/components/App';
+import Client from './client';
 import { ADMIN_URL } from './admin/constants';
 
 const App = () => (

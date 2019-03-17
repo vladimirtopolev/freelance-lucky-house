@@ -25,7 +25,7 @@ export default (app, dirname) => {
                 return next(err)
             }
             res.set('content-type', 'text/html');
-            res.send(result)
+            res.send(result);
             res.end()
         })
     })

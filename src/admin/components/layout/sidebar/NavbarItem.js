@@ -3,11 +3,11 @@ import _ from 'lodash';
 import cn from 'classnames';
 
 import commonStyles from './CommonUserView.module.scss'
-
+import {Link} from 'react-router-dom';
 
 function NavbarItem({item}) {
     const [isOpenSubNav, toggleSubNav] = useState(false);
-    const {iconClassName, title, links} = item;
+    const {iconClassName, title, links, href} = item;
     const existsSubNav = _.isArray(links) && links.length > 0;
 
     const onClickEvent = (ev) => {
@@ -24,10 +24,10 @@ function NavbarItem({item}) {
                 [commonStyles.navbar__item_chevron]: existsSubNav,
                 [commonStyles.navbar__item_open]: isOpenSubNav
             })}>
-            <a href="" className={commonStyles.navbar__link} onClick={onClickEvent}>
+            <Link to={href} className={commonStyles.navbar__link} onClick={onClickEvent}>
                 <span className={cn(commonStyles.navbar__icon, iconClassName)}></span>
                 {title}
-            </a>
+            </Link>
             {existsSubNav && (
                 <ul className={cn(
                     commonStyles.navbar,

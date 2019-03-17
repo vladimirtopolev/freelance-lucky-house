@@ -1,0 +1,113 @@
+$primary-color: #fca12a;
+$secondary-color: #17639d;
+$text-color: #717274;
+$text-color-secondary: #24292e;
+
+.Footer {
+  background: $text-color-secondary;
+
+  &__container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1224px;
+  }
+
+  &__header {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+  }
+
+  &__socials {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__contacts {
+    color: #fff;
+  }
+
+  &__itemContact {
+    padding: 5px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  &__itemContactLabel {
+    margin-right: 10px;
+  }
+
+  &__copyright {
+    text-align: center;
+    font-size: 14px;
+    color: #ffffff;
+    padding: 10px 0;
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      max-width: 600px;
+      width: 100%;
+      display: block;
+      margin-left: -300px;
+      height: 1px;
+      background: #fff;
+    }
+  }
+}
+
+.Social {
+  display: block;
+  width: 50px;
+  height: 50px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  margin-right: 10px;
+
+  &:before {
+    display: block;
+    top: 0;
+    left: 0;
+    content: '';
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    font-family: "Font Awesome 5 Brands";
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    font-size: 20px;
+  }
+
+  &:hover {
+    border-color: $primary-color;
+    text-decoration: none;
+    &:before {
+      color: $primary-color;
+    }
+  }
+
+  &_vk {
+    &:before {
+      content: "\f189";
+    }
+  }
+  &_fb {
+    &:before {
+      content: "\f39e";
+    }
+  }
+
+  &_instagram {
+    &:before {
+      content: "\f16d";
+    }
+  }
+}

@@ -1,0 +1,54 @@
+.Properties {
+  &__switcher {
+    display: inline-flex;
+    list-style: none;
+    border: 2px solid #00acac;
+    margin: 0;
+
+    & li {
+      width: 30px;
+      height: 30px;
+    }
+
+    & button {
+      outline: none;
+      border: none;
+      background: none;
+      display: flex;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      color: #00acac;
+
+      &:visited, &:active, &:focus {
+        outline: none;
+      }
+
+      &:hover {
+        text-decoration: none;
+        background: rgba(0, 172, 172, 0.3);
+        color: #fff;
+        outline: none;
+      }
+    }
+
+    & .Properties__switcher_selected {
+      button {
+        background: #00acac;
+        color: #fff;
+        &:hover {
+          text-decoration: none;
+          background: rgba(0, 172, 172, 0.3);
+          color: #fff;
+        }
+      }
+    }
+  }
+
+
+  & input{
+    width: 100%;
+    padding: 5px 10px;
+  }
+}

@@ -1,0 +1,22 @@
+.table {
+  width: 100%;
+
+  td {
+    padding: 5px 10px;
+  }
+}
+
+.table.table_striped{
+
+  tr{
+    border-bottom: 1px solid rgb(226, 231, 235)
+
+  }
+  tr:nth-child(odd) {
+    background: #efefef;
+  }
+
+  tr:first-child{
+    border-top: 1px solid rgb(226, 231, 235)
+  }
+}

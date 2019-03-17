@@ -5,14 +5,12 @@ import formData from 'express-form-data';
 
 
 import expressBootDev from './expressBootDev';
-import { AVAILABLE_ENVIROMENTS } from '../constants';
+import bootRotes from '../routes';
+import {AVAILABLE_ENVIROMENTS} from '../constants';
 
 
 export default (app, dirname) => {
 
-    if (process.env.NODE_ENV === AVAILABLE_ENVIROMENTS.DEVELOPMENT) {
-        expressBootDev(app, dirname);
-    }
 
     app.use('*', express.static(path.join(dirname, '..', 'build')));
 
@@ -21,9 +19,20 @@ export default (app, dirname) => {
 
     // parse application/json and look for raw text
     app.use(bodyParser.json());
-    app.use(bodyParser.urlencoded({ extended: true }));
+    app.use(bodyParser.urlencoded({extended: true}));
     app.use(bodyParser.text());
-    app.use(bodyParser.json({ type: 'application/json' }));
+    app.use(bodyParser.json({type: 'application/json'}));
     app.use(formData.parse());
+
+    // initialize routers
+    bootRotes(app);
+
+    if (process.env.NODE_ENV === AVAILABLE_ENVIROMENTS.DEVELOPMENT) {
+        expressBootDev(app, dirname);
+    } else {
+        app.get('*', (req, res) => {
+            res.sendFile(path.join(__dirname, 'public', 'index.html'));
+        });
+    }
 
 }

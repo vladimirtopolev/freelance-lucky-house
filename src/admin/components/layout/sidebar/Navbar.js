@@ -3,6 +3,7 @@ import React from 'react';
 import styles from './Navbar.module.scss';
 import commonStyles from './CommonUserView.module.scss'
 import NavbarItem from './NavbarItem';
+import {ADMIN_URL} from '../../../constants';
 
 const links = [
     {
@@ -13,7 +14,7 @@ const links = [
     {
         iconClassName: 'fa fa-table link__icon',
         title: 'Общая информация',
-        href: '/admin/navigation'
+        href: `/${ADMIN_URL}/properties`
     },
     {
         iconClassName: 'fa fa-table link__icon',
@@ -41,7 +42,7 @@ export default () => {
             <div className={styles.MainNavbar__menu}>
                 <ul className={commonStyles.navbar}>
                     {links.map((item, i) => {
-                        return <NavbarItem item={item} key={i} />
+                        return <NavbarItem item={item} key={i}/>
                     })}
                 </ul>
             </div>

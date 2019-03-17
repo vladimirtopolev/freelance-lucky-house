@@ -1,6 +1,7 @@
 import config from 'config';
 import cloudinary from 'cloudinary';
 
+import properties from './properties';
 import table from './table';
 import auth from './auth';
 import navigation from './navigation';
@@ -27,6 +28,7 @@ function saveCloudinaryImage(req, res) {
 }
 
 export default (app) => {
+    properties(app);
     table(app);
     auth(app);
     navigation(app);

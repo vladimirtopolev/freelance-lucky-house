@@ -11,7 +11,6 @@ export default class Image extends Component {
     };
 
     static getDerivedStateFromProps(props, state) {
-        console.log('dlivered', props, state)
         if (props !== state.prevProps) {
             return { src: props.src || '', prevProps: props };
         }

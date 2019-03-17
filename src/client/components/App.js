@@ -1,7 +1,15 @@
 import React, {Component} from 'react';
 import Slider from "react-slick";
+import {connect} from 'react-redux';
+
+import Navigation from './Main/Navigation';
+import AboutUs from './Main/AboutUs'
+import Footer from './Main/Footer';
 
 import './App.scss';
+
+import {fetchProperties} from '../actions/properties';
+import {getProperties} from '../reducers/properties';
 
 var settings = {
     dots: true,
@@ -13,6 +21,10 @@ var settings = {
 };
 
 class App extends Component {
+    componentDidMount() {
+        this.props.dispatch(fetchProperties());
+    }
+
     render() {
         return (
             <div className="wrapper">
@@ -20,44 +32,7 @@ class App extends Component {
                     <div className="main-view">
                         <div className="main-view__header">
 
-
-                            <div className="navigation">
-                                <div className="navigation__container">
-                                    <div className="navigation__logo">
-                                        <img alt="logo" src={require('../../img/logo.png')} className="logo"/>
-                                    </div>
-
-                                    <div className="navigation__bar">
-                                        <ul className="main-navbar">
-                                            <li className="main-navbar__item">
-                                                <a href="#" className="main-navbar__link">О нас</a>
-                                            </li>
-                                            <li className="main-navbar__item">
-                                                <a href="#" className="main-navbar__link">Проекты</a>
-                                            </li>
-                                            <li className="main-navbar__item">
-                                                <a href="#" className="main-navbar__link">Отзывы</a>
-                                            </li>
-                                            <li className="main-navbar__item">
-                                                <a href="#" className="main-navbar__link">Контакты</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-
-                                    <div className="navigation__contact">
-                                        <div className="navbar-contact">
-                                            <div className="navbar-contact__label">
-                                                <div className="fa fa-phone navbar-contact__icon"></div>
-                                            </div>
-                                            <div className="navbar-contact__description">
-                                                <div className="navbar-contact__description-item">+7 911 404 60 22</div>
-                                                <div className="navbar-contact__description-item">nyppelli@mail.ru</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
+                            <Navigation {...this.props}/>
                             <div className="main-slider">
                                 <div className="main-slider__content">
                                     <div className="main-descriptions">
@@ -84,49 +59,7 @@ class App extends Component {
                 </div>
 
 
-                <div className="about-us">
-                    <div className="about-us__container container">
-                        <div className="about-us__title block-title">
-                            О нас
-                        </div>
-                        <div className="about-us__content">
-                            <div className="row">
-                                <div className="col-7">
-                                    <div className="about-us__description">
-                                        Далеко-далеко за словесными горами в стране гласных и
-                                        согласных живут рыбные тексты. Вдали от всех живут они
-                                        в буквенных домах на берегу Семантика большого языкового
-                                        океана. Маленький ручеек Даль журчит по всей стране и
-                                        обеспечивает ее всеми необходимыми правилами.
-                                        Эта парадигматическая страна, в которой жаренные
-                                        члены предложения залетают прямо в рот. Даже всемогущая
-                                        пунктуация не имеет власти над рыбными текстами, ведущими
-                                        безорфографичный образ жизни. Однажды одна маленькая
-                                        строчка рыбного текста по имени Lorem ipsum решила выйти в
-                                        большой мир грамматики. Великий Оксмокс предупреждал ее о
-                                        злых запятых, диких знаках вопроса и коварных точках с запятой,
-                                        но текст не дал сбить себя с толку. Он собрал семь свои
-                                        х заглавных букв, подпоясал инициал за пояс и пустился
-                                        в дорогу.
-                                    </div>
-                                </div>
-                                <div className="col-5">
-                                    <div className="about-us__slogan-container">
-                                        <div className="about-us__slogan">
-                                            Работаем с
-                                            <div className="about-us__slogan-highlight-word">2007</div>
-                                        </div>
-                                        <div className="about-us__slogan">
-                                            Более
-                                            <div className="about-us__slogan-highlight-word">80</div>
-                                            проектов
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <AboutUs {...this.props}/>
 
 
                 <div className="portfolio">
@@ -138,7 +71,8 @@ class App extends Component {
                             <Slider {...settings}>
                                 <div className="portfolio__slide project-slide">
                                     <div className="project-slide__container">
-                                        <div className="project-slide__img" style={{backgroundImage: `url(${require("../../img/photo1.jpg")}`}}></div>
+                                        <div className="project-slide__img"
+                                             style={{backgroundImage: `url(${require("../../img/photo1.jpg")}`}}></div>
                                         <div className="project-slide__description-container">
                                             <div className="project-slide__title">
                                                 Проект 1
@@ -148,7 +82,8 @@ class App extends Component {
                                 </div>
                                 <div className="portfolio__slide project-slide">
                                     <div className="project-slide__container">
-                                        <div className="project-slide__img" style={{backgroundImage: `url(${require("../../img/photo2.jpg")}`}}></div>
+                                        <div className="project-slide__img"
+                                             style={{backgroundImage: `url(${require("../../img/photo2.jpg")}`}}></div>
                                         <div className="project-slide__description-container">
                                             <div className="project-slide__title">
                                                 Проект 1
@@ -158,7 +93,8 @@ class App extends Component {
                                 </div>
                                 <div className="portfolio__slide project-slide">
                                     <div className="project-slide__container">
-                                        <div className="project-slide__img" style={{backgroundImage: `url(${require("../../img/photo3.jpg")}`}}></div>
+                                        <div className="project-slide__img"
+                                             style={{backgroundImage: `url(${require("../../img/photo3.jpg")}`}}></div>
                                         <div className="project-slide__description-container">
                                             <div className="project-slide__title">
                                                 Проект 1
@@ -168,7 +104,8 @@ class App extends Component {
                                 </div>
                                 <div className="portfolio__slide project-slide">
                                     <div className="project-slide__container">
-                                        <div className="project-slide__img" style={{backgroundImage: `url(${require("../../img/photo4.jpg")}`}}></div>
+                                        <div className="project-slide__img"
+                                             style={{backgroundImage: `url(${require("../../img/photo4.jpg")}`}}></div>
                                         <div className="project-slide__description-container">
                                             <div className="project-slide__title">
                                                 Проект 1
@@ -178,7 +115,8 @@ class App extends Component {
                                 </div>
                                 <div className="portfolio__slide project-slide">
                                     <div className="project-slide__container">
-                                        <div className="project-slide__img" style={{backgroundImage: `url(${require("../../img/photo5.jpg")}`}}></div>
+                                        <div className="project-slide__img"
+                                             style={{backgroundImage: `url(${require("../../img/photo5.jpg")}`}}></div>
                                         <div className="project-slide__description-container">
                                             <div className="project-slide__title">
                                                 Проект 1
@@ -311,37 +249,17 @@ class App extends Component {
                 </div>
 
 
-                <div className="footer">
-                    <div className="footer__container">
-                        <div className="footer__header">
-                            <div className="footer__logo">
-                                <img alt="logo" src={require('../../img/logo-footer.png')} className="logo"/>
-                            </div>
-                            <div className="footer__socials">
-                                <a href="https://vk.com/club50042773" className="social social_vk" target="_blank"></a>
-                                <a href="" className="social social_fb"></a>
-                                <a href="" className="social social_instagram"></a>
-                            </div>
-                            <div className="footer__contacts">
-                                <div className="footer__item-contact">
-                                    <i className="fa fa-phone footer__item-contact-label" aria-hidden="true"></i>
-                                    +7 911 404 60 23
-                                </div>
-                                <div className="footer__item-contact">
-                                    <i className="fa fa-envelope footer__item-contact-label" aria-hidden="true"></i>
-                                    mail@mail.ru
-                                </div>
-                            </div>
-                        </div>
-                        <div className="footer__copyright">
-                            © 2018, Удачный дом, Карелия
-                        </div>
-                    </div>
-
-                </div>
+                <Footer {...this.props}/>
             </div>
         );
     }
 }
 
-export default App;
+
+function mapStateToProps(state) {
+    return {
+        properties: getProperties(state)
+    };
+}
+
+export default connect(mapStateToProps)(App);

@@ -1,6 +1,6 @@
 import async from 'async';
 
-import populateTable from './table/populate';
+import populateTable from './moduletable/populate';
 import populateUsers from './users/populate';
 import populateNavigation from './navigation/populate';
 import populateProperties from './properties/populate'

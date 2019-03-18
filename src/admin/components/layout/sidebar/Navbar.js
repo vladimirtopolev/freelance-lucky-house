@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './Navbar.module.scss';
 import commonStyles from './CommonUserView.module.scss'
 import NavbarItem from './NavbarItem';
-import {ADMIN_URL} from '../../../constants';
+import {ADMIN_URL, ADMIN_TABLE_MODULE_URL} from '../../../constants';
 
 const links = [
     {
@@ -24,12 +24,12 @@ const links = [
             {
                 iconClassName: 'fa fa-table link__icon',
                 title: 'Лучшие работы',
-                href: '/admin/table/bestwork'
+                href: `/${ADMIN_URL}/${ADMIN_TABLE_MODULE_URL}/bestwork`
             },
             {
                 iconClassName: 'fa fa-table link__icon',
                 title: 'Партнеры',
-                href: '/admin/table/partners'
+                href: `/${ADMIN_URL}/${ADMIN_TABLE_MODULE_URL}/partners`
             }
         ]
     }

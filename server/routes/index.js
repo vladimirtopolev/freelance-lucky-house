@@ -2,7 +2,7 @@ import config from 'config';
 import cloudinary from 'cloudinary';
 
 import properties from './properties';
-import table from './table';
+import table from './moduleTable';
 import auth from './auth';
 import navigation from './navigation';
 

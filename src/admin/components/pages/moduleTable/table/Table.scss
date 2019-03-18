@@ -1,0 +1,39 @@
+.admin-table {
+  margin: 20px 20px 20px 10px;
+  background: #fff;
+
+  &__title {
+    background: #242a30;
+    color: #fff;
+    padding: 10px;
+  }
+
+  &__control {
+    padding: 10px;
+  }
+
+  &__table {
+    padding: 10px;
+  }
+
+  &__action-cell{
+    width: 80px;
+    text-align: right;
+
+    .btn{
+      margin-right:2px;
+      line-height: 12px;
+      padding: 5px;
+    }
+
+  }
+
+}
+
+.btn {
+  &__icon {
+    margin-right: 5px;
+  }
+}
+
+

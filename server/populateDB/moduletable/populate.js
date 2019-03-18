@@ -1,10 +1,10 @@
 import mongoose from 'mongoose';
 const { Types: { ObjectId } } = mongoose;
 
-import Table from '../../models/table/table';
-import TableColumn from '../../models/table/tableColum';
-import TableRow from '../../models/table/tableRow';
-import TableCell from '../../models/table/tableCell';
+import Table from '../../models/moduleTable/table';
+import TableColumn from '../../models/moduleTable/tableColum';
+import TableRow from '../../models/moduleTable/tableRow';
+import TableCell from '../../models/moduleTable/tableCell';
 import async from 'async';
 import { saveItem, saveItems, dropTables } from '../../utilities/db';
 

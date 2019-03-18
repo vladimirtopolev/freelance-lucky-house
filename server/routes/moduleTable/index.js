@@ -1,6 +1,6 @@
-import Table from '../../models/table/table';
-import TableRow from '../../models/table/tableRow';
-import TableCell from '../../models/table/tableCell';
+import Table from '../../models/moduleTable/table';
+import TableRow from '../../models/moduleTable/tableRow';
+import TableCell from '../../models/moduleTable/tableCell';
 import async from 'async';
 import mongoose from 'mongoose'
 
@@ -148,19 +148,19 @@ async function deleteRow(req, res) {
 
 
 export default (app) => {
-    app.route('/api/table/:tableName/headers')
+    app.route('/api/moduletable/:tableName/headers')
         .get(getHeaders);
 
 
-    app.route('/api/table/:tableName/rows/:rowId')
+    app.route('/api/moduletable/:tableName/rows/:rowId')
         .get(getRow)
         .put(updateRow)
         .delete(deleteRow);
 
-    app.route('/api/table/:tableName/rows')
+    app.route('/api/moduletable/:tableName/rows')
         .get(getRows)
         .post(createRow);
 
-    app.route('/api/table/:tableName')
+    app.route('/api/moduletable/:tableName')
         .get(getTable);
 }

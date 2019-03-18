@@ -1,18 +1,28 @@
-import async from 'async';
+const async = require('async');
 
-import populateTable from './moduletable/populate';
-import populateUsers from './users/populate';
-import populateNavigation from './navigation/populate';
-import populateProperties from './properties/populate'
+const populateTable = require('./moduletable/populate');
+const populateProperties = require('./properties/populate');
+const populateUsers = require('./users/populate');
 
+module.exports = (endCallback) => {
+    return new Promise((resolve, reject) => {
+        async.series([
+            cb => populateTable(cb),
+            cb => populateProperties(cb),
+            cb => populateUsers(cb),
 
-export default (endCallback) => {
-    async.series([
-        cb => populateTable(cb),
-        cb => populateUsers(cb),
-        cb => populateNavigation(cb),
-        cb => populateProperties(cb)
-    ], (err, res) => {
-        endCallback(err);
-    })
-}
+        ], (err, res) => {
+            if (endCallback) {
+                endCallback(err, res);
+            }
+
+            if (err) {
+                reject(err);
+            } else {
+                console.log('Script applied succesfully');
+                resolve(res);
+            }
+        })
+    });
+
+};

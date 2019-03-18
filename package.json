@@ -17,6 +17,8 @@
     "express-form-data": "^2.0.8",
     "jsonwebtoken": "^8.5.0",
     "lodash": "^4.17.11",
+    "mongodb": "^3.1.13",
+    "mongodb-migrations": "^0.8.5",
     "mongoose": "^5.4.19",
     "mongoose-unique-validator": "^2.0.2",
     "node-sass": "^4.11.0",
@@ -38,7 +40,7 @@
     "tinymce": "^5.0.2"
   },
   "scripts": {
-    "start": "npm run build && node server.js",
+    "start": "npm install -g migrate-mongo && NODE_ENV=production npm run build && NODE_ENV=production node server.js",
     "client_dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

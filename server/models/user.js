@@ -1,7 +1,7 @@
-import mongoose from 'mongoose';
-import uniqueValidator from 'mongoose-unique-validator';
-import bcrypt from 'bcrypt-nodejs';
-import config from 'config';
+const mongoose = require('mongoose');
+const uniqueValidator = require('mongoose-unique-validator');
+const bcrypt = require('bcrypt-nodejs');
+const config = require('config');
 
 const { Schema } = mongoose;
 
@@ -61,4 +61,4 @@ UserSchema.methods.toJSON = function () {
 UserSchema.plugin(uniqueValidator, { message: 'Path `{PATH}` must be unique' });
 
 
-export default mongoose.model('User', UserSchema);
+module.exports = mongoose.model('User', UserSchema);

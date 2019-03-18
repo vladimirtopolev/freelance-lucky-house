@@ -1,8 +1,8 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 const { Types: { ObjectId } } = mongoose;
 
 
-export const PROPERTIES = [
+module.exports =  [
     {
         _id: new ObjectId(),
         type: 'INPUT',

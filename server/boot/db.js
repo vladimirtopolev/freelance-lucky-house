@@ -9,7 +9,7 @@ const dbConfig = config.get('dbConfig');
 
 function open() {
     return new Promise((resolve, reject) => {
-        mongoose.connect(dbConfig.host, { useNewUrlParser: true }, (err, res) => {
+        mongoose.connect(dbConfig.host, { dbName: dbConfig.dbName }, (err, res) => {
             if (err) return reject(err);
             if (process.env.NODE_ENV === AVAILABLE_ENVIROMENTS.DEVELOPMENT) {
                 populateDB(() => resolve());

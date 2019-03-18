@@ -1,16 +1,16 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const { Types: { ObjectId } } = mongoose;
 
-export const TABLE = {
+const TABLE = {
     id: new ObjectId(),
-    name:  'bestwork',
+    name: 'bestwork',
     title: 'Лучшие работы',
     uiConfig: {},
     adminConfig: {}
 };
 
-export const TABLE_COLUMNS = [
+const TABLE_COLUMNS = [
     {
         _id: new ObjectId(),
         type: 'INPUT',
@@ -27,7 +27,7 @@ export const TABLE_COLUMNS = [
     }
 ];
 
-export const TABLE_ROWS = [
+const TABLE_ROWS = [
     {
         _id: new ObjectId(),
         table: TABLE.id,
@@ -137,3 +137,9 @@ export const TABLE_ROWS = [
         ]
     },
 ];
+
+module.exports = {
+    TABLE,
+    TABLE_ROWS,
+    TABLE_COLUMNS
+}

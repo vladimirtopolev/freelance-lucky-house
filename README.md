@@ -1,3 +1,34 @@
+# Mongo
+### Run mongo
+The most convenient way to run MongoDB for DEV purposes: is to use Docker container
+```
+  docker run --rm -d \
+   --name mongo-server \
+   -p 27017:27017 \
+    mongo
+```
+Connection details for another environments may be set via config files `/config/${ENV_NAME}.json`
+where `ENV_NAME` set via variable `NODE_ENV` during running of app, for example:
+```
+    NODE_ENV=development node server/index.js
+```
+
+### Migration
+To provide migration we're using `mongo-migration` tool using which you can define new migration scrypt to adjust all
+existed data according to development purposes.
+Preveosly, it's nexessary to install `mongo-migration` as an global package:
+```
+npm install -g migrate-mongo
+```
+To apply all it's needed to ru the following command:
+```
+migrate-mongo up
+```
+To rollback all applied migration scripts run the following:
+```
+migrate-mongo down
+```
+Other info may be found 
 ##Heroky
 ```
 heroku login 

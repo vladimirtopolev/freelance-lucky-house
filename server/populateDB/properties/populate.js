@@ -1,16 +1,13 @@
-import async from "async";
-import { dropTables, saveItems } from "../../utilities/db";
-import Property from "../../models/properties/property";
-import {
-    PROPERTIES
-} from "./constants";
+const async = require('async');
+const { dropTables, saveItems } = require('../../utilities/db');
+const Property = require('../../models/properties/property');
+const PROPERTIES = require('./constants');
 
-export default (endCallback) => {
+module.exports = (endCallback) => {
     async.series([
         cb => dropTables([Property], cb),
         cb => saveItems(Property, PROPERTIES, cb),
     ], (err, res) => {
-        console.log('save propeties', err, res);
         endCallback(err);
     });
-}
+};

@@ -1,12 +1,12 @@
-import Table from '../../models/moduleTable/table';
-import TableColumn from '../../models/moduleTable/tableColum';
-import TableRow from '../../models/moduleTable/tableRow';
-import TableCell from '../../models/moduleTable/tableCell';
-import async from 'async';
-import { saveItem, saveItems, dropTables } from '../../utilities/db';
+const Table = require( '../../models/moduleTable/table');
+const TableColumn = require( '../../models/moduleTable/tableColum');
+const TableRow = require( '../../models/moduleTable/tableRow');
+const TableCell = require( '../../models/moduleTable/tableCell');
+const async = require( 'async');
+const { saveItem, saveItems } = require( '../../utilities/db');
 
 
-export default (tableInfo, endCallback) => {
+module.exports = (tableInfo, endCallback) => {
     console.log(tableInfo);
     const table = tableInfo.TABLE;
     const columns = tableInfo.TABLE_COLUMNS;

@@ -1,8 +1,7 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
+const ObjectId = mongoose.Types.ObjectId;
 
-const { Types: { ObjectId } } = mongoose;
-
-export const USERS = [
+module.exports = [
     {
 
         username: 'i.topolev.vladimir',

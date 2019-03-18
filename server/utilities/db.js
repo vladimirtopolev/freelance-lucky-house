@@ -1,11 +1,11 @@
-import async from 'async';
+const async = require('async');
 
-export function saveItem(SchemaConstructor, item, cb) {
+function saveItem(SchemaConstructor, item, cb) {
     const newItem = new SchemaConstructor(item);
     newItem.save((err, savedItem) => cb(err, savedItem));
 }
 
-export function saveItems(SchemaConstructor, items, endCallback) {
+function saveItems(SchemaConstructor, items, endCallback) {
     async.map(
         items,
         (item, cb) => saveItem(SchemaConstructor, item, cb),
@@ -13,11 +13,11 @@ export function saveItems(SchemaConstructor, items, endCallback) {
     )
 }
 
-export function dropTable(SchemaConstructor, endCallback) {
+function dropTable(SchemaConstructor, endCallback) {
     SchemaConstructor.deleteMany({}, (err) => endCallback(err));
 }
 
-export function dropTables(SchemaConstructors, endCallback) {
+function dropTables(SchemaConstructors, endCallback) {
     async.each(
         SchemaConstructors,
         (SchemaConstructor, cb) => dropTable(SchemaConstructor, cb),
@@ -25,4 +25,11 @@ export function dropTables(SchemaConstructors, endCallback) {
             endCallback(err);
         }
     )
+}
+
+module.exports = {
+    saveItem,
+    saveItems,
+    dropTable,
+    dropTables
 }

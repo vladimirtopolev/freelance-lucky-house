@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const tableRowSchema = Schema({
@@ -11,4 +11,4 @@ const tableRowSchema = Schema({
 });
 
 
-export default mongoose.model('TableRow', tableRowSchema);
+module.exports = mongoose.model('TableRow', tableRowSchema);

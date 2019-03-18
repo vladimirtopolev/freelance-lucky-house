@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const tableColumnSchema = mongoose.Schema({
     type: String,
@@ -7,4 +7,4 @@ const tableColumnSchema = mongoose.Schema({
     order: Number,
 });
 
-export default mongoose.model('TableColumn', tableColumnSchema);
+module.exports = mongoose.model('TableColumn', tableColumnSchema);

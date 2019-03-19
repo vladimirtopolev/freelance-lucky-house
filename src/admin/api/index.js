@@ -4,7 +4,7 @@ import axios from 'axios';
 const API_URL_PREFIX = '/api';
 
 const clientApi = axios.create({
-    baseURL: 'http://localhost:5000'
+    baseURL: window.location.origin
 });
 
 
@@ -19,12 +19,13 @@ export function getProperties() {
 }
 
 export function changePropertyValue(propName, value) {
-    return clientApi.post(`${API_URL_PREFIX}/properties/${propName}`, {value});
+    return clientApi.post(`${API_URL_PREFIX}/properties/${propName}`, { value });
 }
 
 
 // MODULE TABLE
 const MODULE_TABLE_DOMAIN = 'moduletable';
+
 export function getTable(tableName) {
     return clientApi.get(`/api/${MODULE_TABLE_DOMAIN}/${tableName}`);
 }

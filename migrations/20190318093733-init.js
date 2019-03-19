@@ -4,7 +4,8 @@ const dropTables = require('../server/populateDB/dropTables');
 module.exports = {
     async up(db) {
         await getMongooseConnection()
-            .then(() => {
+            .then((config) => {
+                console.log(`Migration script connect to DB: ${config.url}`)
                 return populateInitDB()
             })
 

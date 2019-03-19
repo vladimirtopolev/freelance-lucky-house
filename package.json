@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/register": "^7.0.0",
     "async": "^2.6.2",
     "axios": "^0.18.0",
-    "babel-register": "^6.26.0",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.3",
     "bootstrap": "^4.3.1",
@@ -40,13 +40,17 @@
     "tinymce": "^5.0.2"
   },
   "scripts": {
-    "start": "npm install -g migrate-mongo && NODE_ENV=production npm run build && NODE_ENV=production node server.js",
+    "start": "npm install -g migrate-mongo && npm run build_prod && npm run migrate_prod && npm run start_prod",
     "client_dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "NODE_ENV=development nodemon --watch server --exec babel-node -- server/index.js",
-    "dev_windows": "set NODE_ENV=development&& nodemon --watch server --exec babel-node -- server/index.js"
+    "dev_windows": "set NODE_ENV=development&& nodemon --watch server --exec babel-node -- server/index.js",
+    "build_prod": "npm run build && npm run build_server_prod",
+    "build_server_prod": "./node_modules/.bin/babel server --out-dir server-build",
+    "start_prod": "NODE_ENV=production node server-build/index.js",
+    "migrate_prod": "NODE_ENV=production migrate-mongo up"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -59,7 +63,9 @@
   ],
   "devDependencies": {
     "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.3.4",
     "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.3.4",
     "babel-plugin-syntax-async-functions": "^6.13.0",
     "webpack": "^4.29.6",
     "webpack-dev-middleware": "^3.6.1",

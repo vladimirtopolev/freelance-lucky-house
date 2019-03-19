@@ -12,10 +12,7 @@ import {AVAILABLE_ENVIROMENTS} from '../constants';
 export default (app, dirname) => {
 
 
-    app.use('*', express.static(path.join(dirname, '..', 'build')));
-
-    app.use('/node_modules', express.static(path.join(dirname, '..', 'node_modules')));
-
+    app.use(express.static(path.join(dirname, '..', 'build')))
 
     // parse application/json and look for raw text
     app.use(bodyParser.json());
@@ -30,8 +27,9 @@ export default (app, dirname) => {
     if (process.env.NODE_ENV === AVAILABLE_ENVIROMENTS.DEVELOPMENT) {
         expressBootDev(app, dirname);
     } else {
-        app.get('*', (req, res) => {
-            res.sendFile(path.join(__dirname, 'public', 'index.html'));
+        app.get('/*', (req, res) => {
+            console.log(req.originalUrl);
+            res.sendFile(path.join(dirname, '..', 'build', 'index.html'));
         });
     }
 

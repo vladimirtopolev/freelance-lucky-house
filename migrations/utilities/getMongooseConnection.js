@@ -7,7 +7,7 @@ function getMongooseConnection() {
     return new Promise((resolve, reject) => {
         mongoose.connect(dbConfig.url, { useNewUrlParser: true, dbName: dbConfig.databaseName }, (err, res) => {
             if (err) return reject(err);
-            resolve();
+            resolve(dbConfig);
 
         })
     })

@@ -14,6 +14,7 @@ function open() {
             if (process.env.NODE_ENV === AVAILABLE_ENVIROMENTS.DEVELOPMENT) {
                 populateDB(() => resolve());
             } else {
+                console.log(`Connection to DB is successful: ${dbConfig.host}`);
                 resolve();
             }
         })

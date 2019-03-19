@@ -40,7 +40,7 @@
     "tinymce": "^5.0.2"
   },
   "scripts": {
-    "start": "npm install -g migrate-mongo && npm run build_prod && npm run migrate_prod && npm run start_prod",
+    "start": "npm run start_prod",
     "client_dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -50,7 +50,8 @@
     "build_prod": "npm run build && npm run build_server_prod",
     "build_server_prod": "./node_modules/.bin/babel server --out-dir server-build",
     "start_prod": "NODE_ENV=production node server-build/index.js",
-    "migrate_prod": "NODE_ENV=production migrate-mongo up"
+    "migrate_prod": "NODE_ENV=production migrate-mongo up",
+    "local_script_before_heroku": "npm run build_prod && npm run migrate_prod"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -37,7 +37,10 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "slick-carousel": "^1.8.1",
-    "tinymce": "^5.0.2"
+    "tinymce": "^5.0.2",
+    "webpack": "^4.29.6",
+    "webpack-dev-middleware": "^3.6.1",
+    "webpack-hot-middleware": "^2.24.3"
   },
   "scripts": {
     "start": "npm run start_prod",
@@ -67,9 +70,6 @@
     "@babel/core": "^7.3.4",
     "@babel/node": "^7.2.2",
     "@babel/preset-env": "^7.3.4",
-    "babel-plugin-syntax-async-functions": "^6.13.0",
-    "webpack": "^4.29.6",
-    "webpack-dev-middleware": "^3.6.1",
-    "webpack-hot-middleware": "^2.24.3"
+    "babel-plugin-syntax-async-functions": "^6.13.0"
   }
 }

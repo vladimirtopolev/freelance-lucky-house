@@ -4,7 +4,7 @@ import axios from 'axios';
 const API_URL_PREFIX = '/api';
 
 const clientApi = axios.create({
-    baseURL: 'http://localhost:5000'
+    baseURL: window.location.origin
 });
 
 export function getProperties() {

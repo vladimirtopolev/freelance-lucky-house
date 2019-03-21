@@ -28,7 +28,6 @@ class TableContainer extends Component {
 
 function mapStateToProps(state, ownProps) {
     const tableName = ownProps.match.params.tableName;
-    console.log('State', state);
     return {
         headers: getTableHeaders(tableName, state),
         rows: getTableRows(tableName, state),

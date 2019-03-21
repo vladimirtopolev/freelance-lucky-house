@@ -4,6 +4,8 @@ import {ADMIN_URL, ADMIN_TABLE_MODULE_URL} from '../../../../constants'
 import Image from '../../../common/Image';
 import moment from 'moment';
 
+import commonStyles from '../../../common.module.scss';
+
 export default ({ cells, tableName, _id, deleteRow }) => {
     return (
         <tr>
@@ -19,7 +21,6 @@ export default ({ cells, tableName, _id, deleteRow }) => {
                         break;
                     }
                     case 'DATE': {
-                        console.log(cell.value);
                         content = moment(cell.value).format('DD/MM/YYYY');
                         break;
                     }
@@ -30,10 +31,10 @@ export default ({ cells, tableName, _id, deleteRow }) => {
                 return <td>{content}</td>
             })}
             <td className="admin-table__action-cell">
-                <Link to={`/${ADMIN_URL}/${ADMIN_TABLE_MODULE_URL}/${tableName}/rows/${_id}`} className="btn btn-primary">
-                    <span className="fa fa-pencil"></span>
+                <Link to={`/${ADMIN_URL}/${ADMIN_TABLE_MODULE_URL}/${tableName}/rows/${_id}`} className={commonStyles.button}>
+                    <span className="fas fa-pen"></span>
                 </Link>
-                <button onClick={deleteRow.bind(null, _id)}  className="btn btn-danger">
+                <button onClick={deleteRow.bind(null, _id)}  className={commonStyles.button}>
                     <span className="fa fa-trash"></span>
                 </button>
             </td>

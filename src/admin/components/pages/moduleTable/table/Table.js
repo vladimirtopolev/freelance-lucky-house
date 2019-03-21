@@ -1,29 +1,32 @@
 import React from 'react';
+import cn from 'classnames';
 import Header from './Header';
 import Row from './Row';
 import {Link} from 'react-router-dom'
 import {ADMIN_URL, ADMIN_TABLE_MODULE_URL} from '../../../../constants'
-import './Table.scss';
+
+import commonStyles from '../../../common.module.scss';
+import styles from './Table.module.scss';
 
 export default ({tableName, tableTitle, headers, rows, deleteRow}) => {
     return (
-        <div className="admin-table">
-            <div className="admin-table__title">
+        <div className={cn(styles.Table, commonStyles.page)}>
+            <div className={commonStyles.page__title}>
                 {tableTitle}
             </div>
-            <div className="admin-table__control">
-                <Link to={`/${ADMIN_URL}/${ADMIN_TABLE_MODULE_URL}/${tableName}/rows/new`}
-                      className="btn btn-primary">
-                    <span className="fa fa-plus btn__icon"></span>
-                    Добавить запись
-                </Link>
-            </div>
-            <div className="admin-table__table">
+            <div className={commonStyles.page__content}>
+                <div className={styles.Table__controlButtons}>
+                    <Link to={`/${ADMIN_URL}/${ADMIN_TABLE_MODULE_URL}/${tableName}/rows/new`}
+                          className={commonStyles.button}>
+                        <span className={cn(commonStyles.button__icon, 'fa fa-plus')}></span>
+                        Добавить запись
+                    </Link>
+                </div>
                 <table className="table table-striped table-bordered">
                     <thead>
                     <tr>
                         {headers.map(header => <Header tableName={tableName} {...header}/>)}
-                        <th className="admin-table__action-cell"></th>
+                        <th className={styles.Table__actionCell}></th>
                     </tr>
                     </thead>
                     <tbody>

@@ -59,6 +59,7 @@ class RowContainer extends Component {
 
 function mapStateToProps(state, ownProps) {
     const { tableName, rowId } = ownProps.match.params;
+    console.log(tableName, rowId, state);
     return {
         headers: getTableHeaders(tableName, state),
         row: getTableRow(tableName, rowId, state)

@@ -1,0 +1,33 @@
+.button {
+  display: inline-block;
+  border: 2px solid #00acac;
+  background: #00acac;
+  color: #fff;
+  padding: 5px 10px;
+
+  &:hover {
+    text-decoration: none;
+    background: none;
+    color: #00acac;
+  }
+  margin-right: 10px;
+
+  &__icon{
+    margin-right: 5px;
+  }
+}
+
+.page{
+  margin: 10px;
+
+  &__title{
+    background: #242a30;
+    color: #fff;
+    padding: 10px 20px;
+  }
+
+  &__content{
+    background: #fff;
+    padding: 20px;
+  }
+}

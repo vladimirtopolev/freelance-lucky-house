@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import RowCell from "./RowCell";
 import { withRouter } from "react-router";
 
+import styles from './Row.module.scss';
+import commonStyles from '../../../common.module.scss';
+import { ADMIN_URL, ADMIN_TABLE_MODULE_URL } from '../../../../constants'
+
 class Row extends Component {
 
     state = {
@@ -9,7 +13,7 @@ class Row extends Component {
     };
 
     goBack = () => {
-        this.props.history.goBack();
+        this.props.history.push(`/${ADMIN_URL}/${ADMIN_TABLE_MODULE_URL}/${this.props.match.params.tableName}`);
     };
 
     toggleEditMode = () => {
@@ -19,19 +23,27 @@ class Row extends Component {
 
     render() {
         const { headers, cells, changeCell, saveRow } = this.props;
+        const { editMode } = this.state;
         const row = headers.map(header => {
             const cell = cells.find(cell => header._id === cell.type._id);
             return <RowCell header={header}
                             cell={cell}
-                            editMode={this.state.editMode}
+                            editMode={editMode}
                             changeCell={changeCell.bind(null, cell.type)}/>
         });
         return (
-            <div>
-                {row}
-                <button onClick={this.toggleEditMode}>Редактировать</button>
-                <button onClick={this.goBack}>Назад</button>
-                <button onClick={saveRow}>Сохранить</button>
+            <div className={commonStyles.page}>
+                <div className={commonStyles.page__title}>
+                    {editMode ? 'Режим редактирования записи' : 'Режим просмотра записи'}
+                </div>
+                <div className={commonStyles.page__content}>
+                    {row}
+                    {editMode
+                        ? <button className={commonStyles.button} onClick={saveRow}>Сохранить</button>
+                        : <button className={commonStyles.button} onClick={this.toggleEditMode}>Редактировать</button>
+                    }
+                    <button className={commonStyles.button} onClick={this.goBack}>Назад</button>
+                </div>
             </div>
         );
     }

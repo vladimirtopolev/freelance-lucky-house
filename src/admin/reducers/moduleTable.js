@@ -35,13 +35,17 @@ export default (state = INIT_STATE, action) => {
         }
 
         case FETCH_ADMIN_TABLE_HEADERS: {
-            return {
-                ...state,
-                [action.payload.tableName]: {
+            const newTableItem =
+                {
                     ...state[action.payload.tableName],
                     ...action.payload.response.entities,
                     idHeaders: action.payload.response.result
-                }
+                };
+            newTableItem.idRows = newTableItem.idRows || [];
+            newTableItem.rows = newTableItem.rows || [];
+            return {
+                ...state,
+                [action.payload.tableName]: newTableItem
             }
         }
         case FETCH_ADMIN_TABLE_ROWS: {
@@ -121,6 +125,7 @@ export default (state = INIT_STATE, action) => {
 }
 
 export function getTable(tableName, state) {
+    console.log('getTable', tableName, state);
     return state.moduleTable[tableName] || {
         headers: [],
         idHeaders: [],
@@ -149,6 +154,7 @@ export function getTableRow(tableName, rowId, state) {
     const table = getTable(tableName, state);
     const headers = getTableHeaders(tableName, state);
 
+    console.log(table);
     let row = table.rows[rowId];
     if (!row) {
         return row;

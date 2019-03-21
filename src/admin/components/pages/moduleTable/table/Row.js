@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import {ADMIN_URL, ADMIN_TABLE_MODULE_URL} from '../../../../constants'
 import Image from '../../../common/Image';
+import moment from 'moment';
 
 export default ({ cells, tableName, _id, deleteRow }) => {
     return (
@@ -15,6 +16,11 @@ export default ({ cells, tableName, _id, deleteRow }) => {
                     }
                     case 'IMAGE': {
                         content = <Image src={cell.value} alt='Image'/>;
+                        break;
+                    }
+                    case 'DATE': {
+                        console.log(cell.value);
+                        content = moment(cell.value).format('DD/MM/YYYY');
                         break;
                     }
                     default: {

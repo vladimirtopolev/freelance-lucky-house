@@ -11,12 +11,10 @@ function open() {
     return new Promise((resolve, reject) => {
         mongoose.connect(dbConfig.host, { dbName: dbConfig.dbName }, (err, res) => {
             if (err) return reject(err);
-            if (process.env.NODE_ENV === AVAILABLE_ENVIROMENTS.DEVELOPMENT) {
-                populateDB(() => resolve());
-            } else {
-                console.log(`Connection to DB is successful: ${dbConfig.host}`);
-                resolve();
-            }
+
+            console.log(`Connection to DB is successful: ${dbConfig.host}`);
+            resolve();
+
         })
     })
 }

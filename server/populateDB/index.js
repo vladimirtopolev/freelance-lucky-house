@@ -14,6 +14,7 @@ module.exports = (endCallback) => {
         ], (err, res) => {
             if (endCallback) {
                 endCallback(err, res);
+                resolve();
             }
 
             if (err) {

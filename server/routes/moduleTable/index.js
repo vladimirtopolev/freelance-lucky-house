@@ -86,7 +86,12 @@ function getTable(req, res) {
         })
         .populate('headers')
         .exec((err, item) => {
+            if (err) {
+                console.log('here', err);
+                return res.status(404).json({error: 'Internal issue'});
+            }
             if (!item) {
+                console.log('here--->');
                 return res.status(404).json({ error: `Table ${tableName} does not exist` })
             }
             return res.json(item);

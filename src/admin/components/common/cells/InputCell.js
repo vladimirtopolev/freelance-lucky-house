@@ -13,9 +13,6 @@ InputCell.propTypes = {
     cell: PropTypes.shape({
         value: PropTypes.any
     }),
-    header: PropTypes.shape({
-        name: PropTypes.string
-    }),
     editMode: PropTypes.bool.isRequired,
-    changeCell: PropTypes.func.isRequired
+    changeCell: PropTypes.func
 };

@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import RowCell from "./RowCell";
 import { withRouter } from "react-router";
 
 import styles from './Row.module.scss';
 import commonStyles from '../../../common.module.scss';
 import { ADMIN_URL, ADMIN_TABLE_MODULE_URL } from '../../../../constants'
 
+import getCell from '../../../common/cells/getCell';
 class Row extends Component {
 
     state = {
@@ -26,10 +26,14 @@ class Row extends Component {
         const { editMode } = this.state;
         const row = headers.map(header => {
             const cell = cells.find(cell => header._id === cell.type._id);
-            return <RowCell header={header}
-                            cell={cell}
-                            editMode={editMode}
-                            changeCell={changeCell.bind(null, cell.type)}/>
+            return (
+                <div>
+                    <div>{header.name}</div>
+                    <div>
+                        {getCell({header, cell, editMode, changeCell: changeCell.bind(null, cell.type)})}
+                    </div>
+                </div>
+            )
         });
         return (
             <div className={commonStyles.page}>

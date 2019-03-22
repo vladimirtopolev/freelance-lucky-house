@@ -8,6 +8,8 @@ export default class Image extends Component {
 
     static defaultProps = {
         fallbackSrc: require('../../../img/noimagefound.jpg'),
+        styles: {},
+        alt: 'Image'
     };
 
     static getDerivedStateFromProps(props, state) {
@@ -23,6 +25,8 @@ export default class Image extends Component {
 
 
     render() {
-        return <img src={this.state.src} alt={this.props.alt} onError={this.onError}/>;
+        const {alt, styles} = this.props;
+        console.log(styles);
+        return <img src={this.state.src} alt={alt} onError={this.onError} style={styles}/>;
     }
 }

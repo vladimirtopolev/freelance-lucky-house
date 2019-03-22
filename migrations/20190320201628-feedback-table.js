@@ -35,6 +35,10 @@ const TABLE_COLUMNS = [
         type: 'IMAGE',
         internalName: 'image',
         name: 'Фото',
+        properties: {
+            aspect: 1,
+            maxWidth: 100
+        },
         order: 3
     },
     {
@@ -67,7 +71,7 @@ const TABLE_ROWS = [
                 _id: new ObjectId(),
                 type: TABLE_COLUMNS[2]._id,
                 table: TABLE.id,
-                value: 'https://res.cloudinary.com/dix3v9vzg/image/upload/v1548243408/exposervice/002.jpg'
+                value: 'http://res.cloudinary.com/dix3v9vzg/image/upload/v1553261543/t0it9seesadm1bomoice.jpg'
             },
             {
                 _id: new ObjectId(),
@@ -101,7 +105,7 @@ const TABLE_ROWS = [
                 _id: new ObjectId(),
                 type: TABLE_COLUMNS[2]._id,
                 table: TABLE.id,
-                value: 'https://res.cloudinary.com/dix3v9vzg/image/upload/v1548243408/exposervice/002.jpg'
+                value: 'http://res.cloudinary.com/dix3v9vzg/image/upload/v1553261617/cieim7bqjb6pgrsgjhmw.jpg'
             },
             {
                 _id: new ObjectId(),
@@ -138,7 +142,7 @@ const TABLE_ROWS = [
                 _id: new ObjectId(),
                 type: TABLE_COLUMNS[2]._id,
                 table: TABLE.id,
-                value: 'https://res.cloudinary.com/dix3v9vzg/image/upload/v1548243408/exposervice/002.jpg'
+                value: 'http://res.cloudinary.com/dix3v9vzg/image/upload/v1553262509/c7zljfavn3xemgkwbbmb.jpg'
             },
             {
                 _id: new ObjectId(),
@@ -170,7 +174,7 @@ const TABLE_ROWS = [
                 _id: new ObjectId(),
                 type: TABLE_COLUMNS[2]._id,
                 table: TABLE.id,
-                value: 'https://res.cloudinary.com/dix3v9vzg/image/upload/v1548243408/exposervice/002.jpg'
+                value: 'http://res.cloudinary.com/dix3v9vzg/image/upload/v1553262560/jfec2diaw4qpjm9drfhr.jpg'
             },
             {
                 _id: new ObjectId(),

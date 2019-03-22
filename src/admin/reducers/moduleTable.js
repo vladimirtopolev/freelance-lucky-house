@@ -125,7 +125,6 @@ export default (state = INIT_STATE, action) => {
 }
 
 export function getTable(tableName, state) {
-    console.log('getTable', tableName, state);
     return state.moduleTable[tableName] || {
         headers: [],
         idHeaders: [],
@@ -154,7 +153,6 @@ export function getTableRow(tableName, rowId, state) {
     const table = getTable(tableName, state);
     const headers = getTableHeaders(tableName, state);
 
-    console.log(table);
     let row = table.rows[rowId];
     if (!row) {
         return row;

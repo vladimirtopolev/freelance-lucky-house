@@ -13,7 +13,7 @@ export default ({ cells, tableName, _id, deleteRow }) => {
                 <td>
                     {getCell({
                         cell,
-                        header: { type: cell.type.type },
+                        header: cell.type,
                         editMode: false
                     })}
                 </td>

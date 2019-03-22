@@ -1,0 +1,54 @@
+.ImageModal {
+  width: 100%;
+
+  &__title {
+    padding: 10px 20px;
+    background: #242a30;
+    color: #fff;
+  }
+
+  &__content {
+    padding: 10px 20px;
+  }
+
+  &__dropAreaWrapper {
+    margin-top: 10px;
+    width: 100%;
+    overflow: hidden;
+    height: 0;
+    padding-top: 50%;
+    border: 4px dashed #efefef;
+    position: relative;
+  }
+
+  &__dropArea {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__previewContainer {
+    width: 100%;
+  }
+
+  .ReactCrop__crop-selection {
+    border-radius: 50%;
+  }
+
+
+  &__choosePreviewBtn {
+
+  }
+
+  &__buttons {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+}

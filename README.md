@@ -1,3 +1,10 @@
+# How make release in heroku
+```aidl
+npm run local_script_before_heroku <-- after this push changes into repository
+npm run migrate_prod
+
+```
+
 # Mongo
 ### Run mongo
 The most convenient way to run MongoDB for DEV purposes: is to use Docker container

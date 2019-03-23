@@ -127,7 +127,15 @@ function getTable(req, res) {
       }
     }
   }).populate('headers').exec(function (err, item) {
+    if (err) {
+      console.log('here', err);
+      return res.status(404).json({
+        error: 'Internal issue'
+      });
+    }
+
     if (!item) {
+      console.log('here--->');
       return res.status(404).json({
         error: "Table ".concat(tableName, " does not exist")
       });

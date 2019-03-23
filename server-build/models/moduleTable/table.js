@@ -3,16 +3,21 @@
 var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
+
+var TableColumn = require('./tableColum');
+
+var TableRow = require('./tableRow');
+
 var tableSchema = Schema({
   name: String,
   title: String,
   headers: [{
     type: Schema.Types.ObjectId,
-    ref: 'TableColumn'
+    ref: TableColumn.modelName
   }],
   rows: [{
     type: Schema.Types.ObjectId,
-    ref: 'TableRow'
+    ref: TableRow.modelName
   }],
   uiConfig: mongoose.Mixed,
   adminConfig: mongoose.Mixed

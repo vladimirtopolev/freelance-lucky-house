@@ -19,6 +19,7 @@ module.exports = function (endCallback) {
     }], function (err, res) {
       if (endCallback) {
         endCallback(err, res);
+        resolve();
       }
 
       if (err) {

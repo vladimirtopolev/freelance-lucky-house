@@ -18,15 +18,8 @@ function open() {
       dbName: dbConfig.dbName
     }, function (err, res) {
       if (err) return reject(err);
-
-      if (process.env.NODE_ENV === _constants.AVAILABLE_ENVIROMENTS.DEVELOPMENT) {
-        (0, _populateDB.default)(function () {
-          return resolve();
-        });
-      } else {
-        console.log("Connection to DB is successful: ".concat(dbConfig.host));
-        resolve();
-      }
+      console.log("Connection to DB is successful: ".concat(dbConfig.host));
+      resolve();
     });
   });
 }

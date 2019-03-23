@@ -6,6 +6,7 @@ import commonStyles from '../../../common.module.scss';
 import { ADMIN_URL, ADMIN_TABLE_MODULE_URL } from '../../../../constants'
 
 import getCell from '../../../common/cells/getCell';
+
 class Row extends Component {
 
     state = {
@@ -20,9 +21,14 @@ class Row extends Component {
         this.setState({ editMode: !this.state.editMode });
     };
 
+    saveRow = () => {
+        this.props.saveRow();
+        this.goBack();
+    };
+
 
     render() {
-        const { headers, cells, changeCell, saveRow } = this.props;
+        const { headers, cells, changeCell } = this.props;
         const { editMode } = this.state;
         const row = headers.map(header => {
             const cell = cells.find(cell => header._id === cell.type._id);
@@ -30,7 +36,7 @@ class Row extends Component {
                 <div>
                     <div>{header.name}</div>
                     <div>
-                        {getCell({header, cell, editMode, changeCell: changeCell.bind(null, cell.type)})}
+                        {getCell({ header, cell, editMode, changeCell: changeCell.bind(null, cell.type) })}
                     </div>
                 </div>
             )
@@ -43,7 +49,7 @@ class Row extends Component {
                 <div className={commonStyles.page__content}>
                     {row}
                     {editMode
-                        ? <button className={commonStyles.button} onClick={saveRow}>Сохранить</button>
+                        ? <button className={commonStyles.button} onClick={this.saveRow}>Сохранить</button>
                         : <button className={commonStyles.button} onClick={this.toggleEditMode}>Редактировать</button>
                     }
                     <button className={commonStyles.button} onClick={this.goBack}>Назад</button>

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 
@@ -23,16 +23,20 @@ export default function SingleImage({ cell, header, editMode, changeCell }) {
 
     const [isModalOpen, toggleModal] = useState(false);
 
+    const imageAspect = _.get(header, 'properties.aspect', 1);
     return editMode
         ? (
             <div>
-                <button onClick={()=> toggleModal(true)}>Изменить изображение</button>
-                <Image src={cell.value} alt="Image"/>
-                <ImageModal isOpen={isModalOpen} toggle={()=> toggleModal(!isModalOpen)} saveImage={onChange}/>
+                <button onClick={() => toggleModal(true)}>Изменить изображение</button>
+                <Image src={cell.value}/>
+                <ImageModal isOpen={isModalOpen}
+                            toggle={() => toggleModal(!isModalOpen)}
+                            imageAspect={imageAspect}
+                            saveImage={onChange}/>
             </div>
         )
         : <Image src={cell.value}
-                 styles={{maxWidth: _.get(header, 'properties.maxWidth', 'none')}}/>
+                 styles={{ maxWidth: _.get(header, 'properties.maxWidth', 'none') }}/>
 
 };
 

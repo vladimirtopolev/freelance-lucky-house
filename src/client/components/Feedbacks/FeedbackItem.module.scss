@@ -1,0 +1,57 @@
+.FeedbackItem {
+
+  display: flex;
+  margin-bottom: 30px;
+
+  &__imageContainer {
+    padding: 15px;
+  }
+
+  &__image {
+    width: 200px;
+    border-radius: 50%;
+  }
+
+  &__content {
+    padding: 20px;
+    position: relative;
+
+    &:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      max-width: 300px;
+      height: 1px;
+      background: #fca12a;
+      left: 0;
+      bottom: 0;
+    }
+
+  }
+
+  &__personName {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  &__date {
+    font-size: 12px;
+    color: #717274;
+  }
+
+  &__text {
+    margin-top: 15px;
+    padding-left: 40px;
+    position: relative;
+    &:after {
+      content: "\f10d";
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      font-size: 26px;
+    }
+  }
+
+}

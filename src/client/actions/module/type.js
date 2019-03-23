@@ -1,0 +1,1 @@
+export const FETCH_MODULE_TABLE = 'FETCH_MODULE_TABLE';

@@ -1,0 +1,40 @@
+$primary-color: #fca12a;
+$secondary-color: #17639d;
+$text-color: #717274;
+$text-color-secondary: #24292e;
+
+// ABOUT AS
+.AboutUs {
+  background: #f7f8fc;
+  padding-top: 20px;
+  padding-bottom: 40px;
+
+  &__description {
+    padding: 10px 0 20px;
+    text-indent: 30px;
+    & p {
+      margin-bottom: 5px;
+    }
+  }
+
+  &__sloganContainer {
+    height: 100%;
+    background: url("../../../../img/about-us-bg.png") bottom right no-repeat;
+    background-size: cover;
+  }
+
+  &__slogan {
+    text-transform: uppercase;
+    font-size: 30px;
+    text-align: right;
+  }
+
+  &__sloganHighlightWord {
+    margin: 0 10px;
+    padding: 2px 10px;
+    font-weight: bold;
+    background: $primary-color;
+    display: inline-block;
+    border-radius: 10px;
+  }
+}

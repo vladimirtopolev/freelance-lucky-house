@@ -19,6 +19,16 @@ export default class ImageModal extends Component {
 
     state = this.initState;
 
+    componentDidMount() {
+        this.setState({
+            crop: {
+                ...this.state.crop,
+                aspect: this.props.imageAspect
+            }
+        });
+    }
+
+
     changePreview = (e) => {
         const reader = new FileReader();
         reader.onload = (event) => {

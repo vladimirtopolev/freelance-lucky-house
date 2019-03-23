@@ -9,7 +9,8 @@ import { getTableHeaders, getTableRow } from '../../../../reducers/moduleTable';
 
 class RowContainer extends Component {
 
-    state = { cells: [] };
+    state = { cells: [], isNew: false };
+
 
     componentDidMount() {
         const { tableName, rowId } = this.props.match.params;
@@ -26,7 +27,12 @@ class RowContainer extends Component {
                     .find(c => c.type._id === header._id);
                 return cell || { type: header, value: '' }
             });
-            return { cells, prevProps: props };
+            return {
+                ...state,
+                isNew: props.match.params.rowId === 'new',
+                cells,
+                prevProps: props
+            };
         }
     }
 
@@ -42,7 +48,7 @@ class RowContainer extends Component {
     saveRow = () => {
         const { tableName, rowId } = this.props.match.params;
         if (rowId === 'new') {
-            const cells = this.state.cells.map(cell => ({...cell, type: cell.type._id}));
+            const cells = this.state.cells.map(cell => ({ ...cell, type: cell.type._id }));
             this.props.dispatch(saveTableRow(tableName, { cells }));
         } else {
             this.props.dispatch(updateTableRow(tableName, rowId, { cells: this.state.cells }));
@@ -50,7 +56,8 @@ class RowContainer extends Component {
     };
 
     render() {
-        return <Row headers={this.props.headers}
+        return <Row isNew={this.state.isNew}
+                    headers={this.props.headers}
                     cells={this.state.cells}
                     changeCell={this.changeCell}
                     saveRow={this.saveRow}/>

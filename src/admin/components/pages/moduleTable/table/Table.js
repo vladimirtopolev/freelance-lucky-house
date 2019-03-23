@@ -2,13 +2,13 @@ import React from 'react';
 import cn from 'classnames';
 import Header from './Header';
 import Row from './Row';
-import {Link} from 'react-router-dom'
-import {ADMIN_URL, ADMIN_TABLE_MODULE_URL} from '../../../../constants'
+import { Link } from 'react-router-dom'
+import { ADMIN_URL, ADMIN_TABLE_MODULE_URL } from '../../../../constants'
 
 import commonStyles from '../../../common.module.scss';
 import styles from './Table.module.scss';
 
-export default ({tableName, tableTitle, headers, rows, deleteRow}) => {
+export default ({ tableName, tableTitle, headers, rows, deleteRow }) => {
     return (
         <div className={cn(styles.Table, commonStyles.page)}>
             <div className={commonStyles.page__title}>
@@ -25,12 +25,18 @@ export default ({tableName, tableTitle, headers, rows, deleteRow}) => {
                 <table className="table table-striped table-bordered">
                     <thead>
                     <tr>
-                        {headers.map(header => <Header tableName={tableName} {...header}/>)}
+                        {headers.map((header, i) =>
+                            <Header key={i}
+                                    tableName={tableName}
+                                    {...header}/>)}
                         <th className={styles.Table__actionCell}></th>
                     </tr>
                     </thead>
                     <tbody>
-                    {rows.map(row => <Row tableName={tableName} {...row} deleteRow={deleteRow}/>)}
+                    {rows.map((row, i) => <Row tableName={tableName}
+                                               key={i}
+                                               {...row}
+                                               deleteRow={deleteRow}/>)}
                     </tbody>
                 </table>
             </div>

@@ -1,3 +1,33 @@
-.Row{
+.Row {
 
+  &__table {
+    display: table;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  &__tableRow {
+    display: table-row;
+
+    &:nth-child(2n) {
+      background: #efefef;
+    }
+
+    &:first-child .Row__tableCell{
+      border-top: 1px solid #dee2e6;
+    }
+  }
+
+  &__tableCell {
+    display: table-cell;
+    padding: 10px 20px;
+    border-bottom: 1px solid #dee2e6;
+  }
+
+  &__titleTableCell {
+    width: 200px;
+    background: #2d353c;
+    border-right: 1px solid #dee2e6;
+    color: #fff;
+  }
 }

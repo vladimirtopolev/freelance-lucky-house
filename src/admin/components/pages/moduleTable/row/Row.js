@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router";
-
+import { withRouter } from 'react-router-dom'
+import cn from 'classnames';
 import styles from './Row.module.scss';
 import commonStyles from '../../../common.module.scss';
 import { ADMIN_URL, ADMIN_TABLE_MODULE_URL } from '../../../../constants'
@@ -28,14 +28,16 @@ class Row extends Component {
 
 
     render() {
-        const { headers, cells, changeCell } = this.props;
-        const { editMode } = this.state;
-        const row = headers.map(header => {
+        const { headers, cells, changeCell, isNew } = this.props;
+        const editMode = this.state.editMode || isNew;
+        const row = headers.map((header, i) => {
             const cell = cells.find(cell => header._id === cell.type._id);
             return (
-                <div>
-                    <div>{header.name}</div>
-                    <div>
+                <div className={styles.Row__tableRow} key={i}>
+                    <div className={cn(styles.Row__tableCell, styles.Row__titleTableCell)}>
+                        {header.name}
+                    </div>
+                    <div className={styles.Row__tableCell}>
                         {getCell({ header, cell, editMode, changeCell: changeCell.bind(null, cell.type) })}
                     </div>
                 </div>
@@ -46,8 +48,10 @@ class Row extends Component {
                 <div className={commonStyles.page__title}>
                     {editMode ? 'Режим редактирования записи' : 'Режим просмотра записи'}
                 </div>
-                <div className={commonStyles.page__content}>
-                    {row}
+                <div className={cn(styles.Row, commonStyles.page__content)}>
+                    <div className={styles.Row__table}>
+                        {row}
+                    </div>
                     {editMode
                         ? <button className={commonStyles.button} onClick={this.saveRow}>Сохранить</button>
                         : <button className={commonStyles.button} onClick={this.toggleEditMode}>Редактировать</button>

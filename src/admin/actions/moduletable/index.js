@@ -17,7 +17,6 @@ export function fetchTable(tableName){
     return dispatch => {
         return api.getTable(tableName)
             .then(res => {
-                console.log(res.data);
                 dispatch({
                     type: FETCH_ADMIN_TABLE,
                     payload: {

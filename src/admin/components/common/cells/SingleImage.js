@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
+import commonStyles from '../../common.module.scss';
+import styles from './SingleImage.module.scss';
 
 import ImageModal from './SingleImageModal';
 import Image from '../Image'
@@ -23,12 +25,18 @@ export default function SingleImage({ cell, header, editMode, changeCell }) {
 
     const [isModalOpen, toggleModal] = useState(false);
 
+    const imageStyles = { maxWidth: _.get(header, 'properties.maxWidth', 'none') };
     const imageAspect = _.get(header, 'properties.aspect', 1);
     return editMode
         ? (
-            <div>
-                <button onClick={() => toggleModal(true)}>Изменить изображение</button>
-                <Image src={cell.value}/>
+            <div className={styles.SingleImage}>
+                <Image src={cell.value} styles={imageStyles}/>
+                <div className={styles.SingleImage__actionButtons}>
+                    <button className={commonStyles.button}
+                            onClick={() => toggleModal(true)}>
+                        Изменить изображение
+                    </button>
+                </div>
                 <ImageModal isOpen={isModalOpen}
                             toggle={() => toggleModal(!isModalOpen)}
                             imageAspect={imageAspect}
@@ -36,7 +44,7 @@ export default function SingleImage({ cell, header, editMode, changeCell }) {
             </div>
         )
         : <Image src={cell.value}
-                 styles={{ maxWidth: _.get(header, 'properties.maxWidth', 'none') }}/>
+                 styles={imageStyles}/>
 
 };
 

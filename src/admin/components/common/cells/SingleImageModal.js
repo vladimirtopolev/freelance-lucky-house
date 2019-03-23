@@ -89,6 +89,7 @@ export default class ImageModal extends Component {
         const { previewImage, crop } = this.state;
         return (
             <Modal isOpen={isOpen}
+                   size={'lg'}
                    toggle={toggle}
                    className={styles.ImageModal}
                    onClosed={() => {

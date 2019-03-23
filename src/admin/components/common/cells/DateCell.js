@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import moment from "moment";
+import styles from '../../common.module.scss';
+
 
 export default function DateCell({ cell, header, editMode, changeCell }) {
     const onChange = (ev) => {
@@ -8,7 +10,10 @@ export default function DateCell({ cell, header, editMode, changeCell }) {
     };
 
     return editMode
-        ? <input value={moment(cell.value).format('YYYY-MM-DD')} onChange={onChange} type="date"/>
+        ? <input className={styles.input}
+                 value={moment(cell.value).format('YYYY-MM-DD')}
+                 onChange={onChange}
+                 type="date"/>
         : moment(cell.value).format('DD/MM/YYYY');
 }
 

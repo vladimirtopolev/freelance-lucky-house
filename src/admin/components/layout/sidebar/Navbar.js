@@ -23,6 +23,11 @@ const links = [
         links: [
             {
                 iconClassName: 'fa fa-table link__icon',
+                title: 'Реализованные проекты',
+                href: `/${ADMIN_URL}/${ADMIN_TABLE_MODULE_URL}/projects`
+            },
+            {
+                iconClassName: 'fa fa-table link__icon',
                 title: 'Отзывы',
                 href: `/${ADMIN_URL}/${ADMIN_TABLE_MODULE_URL}/feedbacks`
             }

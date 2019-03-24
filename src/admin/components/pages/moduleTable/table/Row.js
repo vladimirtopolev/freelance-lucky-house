@@ -10,7 +10,9 @@ import styles from './Table.module.scss';
 export default ({ cells, tableName, _id, deleteRow }) => {
     return (
         <tr>
-            {cells.map((cell, i) => (
+            {cells
+                .filter(cell =>  !cell.type.previewHidden)
+                .map((cell, i) => (
                 <td key={i}>
                     {getCell({
                         cell,

@@ -25,7 +25,9 @@ export default ({ tableName, tableTitle, headers, rows, deleteRow }) => {
                 <table className="table table-striped table-bordered">
                     <thead>
                     <tr>
-                        {headers.map((header, i) =>
+                        {headers
+                            .filter(header => !header.previewHidden)
+                            .map((header, i) =>
                             <Header key={i}
                                     tableName={tableName}
                                     {...header}/>)}

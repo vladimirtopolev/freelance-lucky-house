@@ -22,17 +22,17 @@
   overflow: hidden;
   position: relative;
   padding: 5px 15px;
-  border: 2px solid  #00acac;
+  border: 2px solid #00acac;
   background: #00acac;
   color: #fff;
   margin-right: 10px;
-
-  &:hover{
+  display: inline-block;
+  &:hover {
     background: none;
     color: #00acac;
   }
 
-  & [type=file]{
+  & [type=file] {
     cursor: inherit;
     display: block;
     font-size: 999px;

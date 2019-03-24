@@ -115,6 +115,7 @@ $navbar-vertical-padding: 10px;
 
   &__logo {
     padding-top: $navbar-vertical-padding;
+    display: block;
   }
 
   &__container {
@@ -307,91 +308,6 @@ $navbar-vertical-padding: 10px;
   }
 }
 
-// PORTFOLIO
-.portfolio {
-  background: fixed url("../../../img/bg-portfolio.jpg");
-  padding-top: 20px;
-  padding-bottom: 20px;
-  &__title {
-    color: #fff;
-  }
-  &__slider {
-    padding: 20px 0;
-    margin-left: 20px;
-    margin-right: 20px;
-
-    & .slick-arrow:before {
-      color: $primary-color;
-    }
-  }
-  &__slide {
-
-  }
-  &__more {
-    text-align: right;
-  }
-
-  &__slider-dots {
-    & li button:before {
-      color: #fff;
-    }
-    & li.slick-active button:before {
-      color: $primary-color;
-      font-size: 10px;
-    }
-  }
-}
-
-.project-slide {
-
-  &__container {
-    height: 0;
-    padding-bottom: 75%;
-    position: relative;
-    overflow: hidden;
-    margin: 0 10px;
-  }
-
-  &__img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    transition: all 300ms ease-out;
-  }
-
-  &:hover {
-    .project-slide__img {
-      transform: scale(1.5);
-    }
-    .project-slide__description-container {
-      left: 0;
-
-    }
-
-  }
-
-  &__description-container {
-    transition: all 300ms ease-out;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    position: absolute;
-    top: 0;
-    left: -100%;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    color: #fff;
-  }
-
-  &__title {
-    margin-bottom: 20px;
-  }
-}
 
 // ADVANTAGES
 .advantages {

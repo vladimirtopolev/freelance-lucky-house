@@ -1,5 +1,7 @@
 import React from 'react';
 import ExtractModuleData from '../common/ExtractModuleData';
+import ResetWindowScroll from '../common/ResetWindowScroll'
+
 import * as moduleUtilities from '../../utilities/moduleUtils';
 
 import FeedbackItem from './FeedbackItem';
@@ -13,4 +15,4 @@ const Feedbacks = ({ rows }) => {
     );
 }
 
-export default ExtractModuleData('feedbacks')(Feedbacks);
+export default ResetWindowScroll(ExtractModuleData('feedbacks')(Feedbacks));

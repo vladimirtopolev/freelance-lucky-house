@@ -24,7 +24,7 @@ export default class Image extends Component {
 
 
     render() {
-        const {alt, styles} = this.props;
-        return <img src={this.state.src} alt={alt} onError={this.onError} style={styles}/>;
+        const {alt, styles, className} = this.props;
+        return <img src={this.state.src} alt={alt} onError={this.onError} style={styles} className={className}/>;
     }
 }

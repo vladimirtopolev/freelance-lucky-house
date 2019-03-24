@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
+
 import Feedbacks from '../Feedbacks/Feedbacks';
+import Projects from '../Projects/Projects';
 
 import Navigation from '../Main/Navigation/Navigation';
 import Footer from '../Main/Footer/Footer';
@@ -25,6 +27,7 @@ class Layout extends Component {
                         <div className="layout__page">
                             <Switch>
                                 <Route path="/feedbacks" component={Feedbacks}/>
+                                <Route path="/projects" component={Projects}/>
                             </Switch>
                         </div>
                     </div>

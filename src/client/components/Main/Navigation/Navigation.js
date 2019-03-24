@@ -10,25 +10,21 @@ export default function ({properties, isSecondary}) {
     return (
         <div className={cn('navigation', {'navigation_secondary': isSecondary})}>
             <div className="navigation__container">
-                <div className="navigation__logo">
+                <a className="navigation__logo" href="/">
                     <img alt="logo" src={require('../../../../img/logo.png')} className="logo"/>
-                </div>
+                </a>
 
                 <div className="navigation__bar">
                     <ul className="main-navbar">
                         <li className="main-navbar__item">
-                            <a href="#" className="main-navbar__link">О нас</a>
-                        </li>
-                        <li className="main-navbar__item">
-                            <a href="#" className="main-navbar__link">Проекты</a>
+                            <Link to="/projects"  className="main-navbar__link">
+                                Проекты
+                            </Link>
                         </li>
                         <li className="main-navbar__item">
                             <Link to="/feedbacks"  className="main-navbar__link">
                                 Отзывы
                             </Link>
-                        </li>
-                        <li className="main-navbar__item">
-                            <a href="#" className="main-navbar__link">Контакты</a>
                         </li>
                     </ul>
                 </div>

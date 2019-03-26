@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchModuleData } from '../../actions/module/actions'
+import { fetchModuleTableItem } from '../../actions/module/actions'
 import { getModuleRows } from '../../reducers/module';
 
 export default moduleName => ModuleComponent => {
 
-    class ExtractModuleData extends Component {
+    class ExtractModuleTableItem extends Component {
+
+        static getDerivedStateFromProps(props, state) {
+            console.log('HERHER', props)
+        }
+
         componentDidMount() {
-            console.log('DID')
-            this.props.dispatch(fetchModuleData(moduleName));
+            this.props.dispatch(fetchModuleTableItem(moduleName));
         }
 
         render() {
-            console.log('here --->')
             return <ModuleComponent {...this.props}/>
         }
     }
@@ -21,5 +24,5 @@ export default moduleName => ModuleComponent => {
         rows: getModuleRows(moduleName, state)
     });
 
-    return connect(mapStateToProps)(ExtractModuleData);
+    return connect(mapStateToProps)(ExtractModuleTableItem);
 }

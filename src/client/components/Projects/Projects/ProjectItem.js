@@ -1,5 +1,5 @@
 import React from 'react';
-import * as moduleUtilities from "../../utilities/moduleUtils";
+import * as moduleUtilities from "../../../utilities/moduleUtils";
 import moment from 'moment'
 
 import styles from './ProjectItem.module.scss';

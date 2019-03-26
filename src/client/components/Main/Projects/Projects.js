@@ -1,6 +1,6 @@
 import Slider from "react-slick";
 import React from "react";
-import ExtractModuleData from '../../common/ExtractModuleData';
+import ExtractModuleData from '../../common/ExtractModuleTable';
 import {Link} from 'react-router-dom';
 import ProjectItem from './ProjectItem';
 
@@ -16,7 +16,6 @@ const settings = {
 };
 
 const Projects = ({ rows }) => {
-    console.log('PROJECTS', rows);
     return (
         <div className="portfolio">
             <div className="portfolio__container container">

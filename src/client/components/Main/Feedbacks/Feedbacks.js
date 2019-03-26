@@ -3,7 +3,7 @@ import _ from 'lodash';
 import './Feedbacks.scss';
 import {Link} from 'react-router-dom'
 
-import ExtractModuleData from '../../common/ExtractModuleData';
+import ExtractModuleData from '../../common/ExtractModuleTable';
 import FeedbckItem from './FeedbackItem';
 
 const Feedbacks = ({rows}) => {

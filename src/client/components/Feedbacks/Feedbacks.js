@@ -1,5 +1,5 @@
 import React from 'react';
-import ExtractModuleData from '../common/ExtractModuleData';
+import ExtractModuleData from '../common/ExtractModuleTable';
 import ResetWindowScroll from '../common/ResetWindowScroll'
 
 import * as moduleUtilities from '../../utilities/moduleUtils';

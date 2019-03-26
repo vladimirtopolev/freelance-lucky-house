@@ -15,3 +15,7 @@ export function getProperties() {
 export function getTable(tableName) {
     return clientApi.get(`${API_URL_PREFIX}/${MODULE_TABLE_DOMAIN}/${tableName}`);
 }
+
+export function getTableRow(tableName, rowId) {
+    return clientApi.get(`/api/${MODULE_TABLE_DOMAIN}/${tableName}/rows/${rowId}`);
+}

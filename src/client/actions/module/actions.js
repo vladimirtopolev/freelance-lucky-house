@@ -1,18 +1,36 @@
 import * as api from '../../api';
-import { FETCH_MODULE_TABLE } from './type';
+import { normalize } from 'normalizr';
+
+import { FETCH_MODULE_TABLE, FETCH_MODULE_TABLE_ROW } from './type';
+import { row, table } from '../../../admin/schema/adminTable';
 
 
-export function fetchModuleData(moduleName) {
+export function fetchModuleTable(tableName) {
     return dispatch => {
-        return api.getTable(moduleName)
+        return api.getTable(tableName)
             .then(res => {
                 dispatch({
                     type: FETCH_MODULE_TABLE,
                     payload: {
-                        moduleName,
-                        response: res.data
+                        tableName,
+                        response: normalize(res.data, table)
                     }
                 });
+            })
+    }
+}
+
+export function fetchModuleTableItem(tableName, rowId){
+    return dispatch => {
+        return api.getTableRow(tableName, rowId)
+            .then(res => {
+                dispatch({
+                    type: FETCH_MODULE_TABLE_ROW,
+                    payload: {
+                        tableName,
+                        response: normalize(res.data, row)
+                    }
+                })
             })
     }
 }

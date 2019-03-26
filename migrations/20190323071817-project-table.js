@@ -77,7 +77,7 @@ const TABLE_ROWS = [
                 _id: new ObjectId(),
                 type: TABLE_COLUMNS[1]._id,
                 table: TABLE.id,
-                value: 'Каркасный дом'
+                value: 'Каркасный дом 01'
             },
             {
                 _id: new ObjectId(),
@@ -119,7 +119,7 @@ const TABLE_ROWS = [
                 _id: new ObjectId(),
                 type: TABLE_COLUMNS[1]._id,
                 table: TABLE.id,
-                value: 'Каркасный дом'
+                value: 'Каркасный дом 02'
             },
             {
                 _id: new ObjectId(),
@@ -161,7 +161,7 @@ const TABLE_ROWS = [
                 _id: new ObjectId(),
                 type: TABLE_COLUMNS[1]._id,
                 table: TABLE.id,
-                value: 'Каркасный дом'
+                value: 'Каркасный дом 03'
             },
             {
                 _id: new ObjectId(),
@@ -203,7 +203,7 @@ const TABLE_ROWS = [
                 _id: new ObjectId(),
                 type: TABLE_COLUMNS[1]._id,
                 table: TABLE.id,
-                value: 'Каркасный дом'
+                value: 'Каркасный дом 04'
             },
             {
                 _id: new ObjectId(),

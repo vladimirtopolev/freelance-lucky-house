@@ -6,7 +6,7 @@ import React from 'react';
 export default () => {
     return (
         <Switch>
-            <Route path="/projects/:projectsId" component={ProjectItem}/>
+            <Route path="/projects/:projectId" component={ProjectItem}/>
             <Route path="/projects" component={Projects}/>
         </Switch>
     );

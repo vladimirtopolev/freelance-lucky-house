@@ -20,7 +20,12 @@ export default (state = initialState, action) => {
         }
 
         case FETCH_MODULE_TABLE_ROW: {
-            const table = state[action.payload.tableName];
+            console.log('REDUCER', action);
+            const table = state[action.payload.tableName] || {
+                cells: {},
+                headers: {},
+                rows: {}
+            };
             const entities = action.payload.response.entities;
             const cells = { ...table.cells, ...entities.cells };
             const headers = { ...table.headers, ...entities.headers };
@@ -45,7 +50,8 @@ export default (state = initialState, action) => {
 
 export function getModuleTable(moduleName, state) {
     return state.module[moduleName] || {
-        headers: [],
+        headers: {},
+        cells: {},
         idHeaders: [],
         rows: {},
         idRows: [],
@@ -55,6 +61,9 @@ export function getModuleTable(moduleName, state) {
 export function getModuleRow(moduleName, rowId, state) {
     const table = getModuleTable(moduleName, state);
     const row = table.rows[rowId];
+    if (!row) {
+        return {};
+    }
     const cells = row.cells
         .map(cellId => table.cells[cellId])
         .map(cell => ({ ...cell, type: table.headers[cell.type] }));

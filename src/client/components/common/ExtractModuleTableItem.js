@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchModuleTableItem } from '../../actions/module/actions'
-import { getModuleRows } from '../../reducers/module';
+import { getModuleRow } from '../../reducers/module';
 
-export default moduleName => ModuleComponent => {
+export default (moduleName, getRowIdFromProps) => ModuleComponent => {
 
     class ExtractModuleTableItem extends Component {
 
-        static getDerivedStateFromProps(props, state) {
-            console.log('HERHER', props)
-        }
-
         componentDidMount() {
-            this.props.dispatch(fetchModuleTableItem(moduleName));
+            const projectId = getRowIdFromProps(this.props);
+            this.props.dispatch(fetchModuleTableItem(moduleName, projectId));
         }
 
         render() {
@@ -20,9 +17,12 @@ export default moduleName => ModuleComponent => {
         }
     }
 
-    const mapStateToProps = (state) => ({
-        rows: getModuleRows(moduleName, state)
-    });
+    const mapStateToProps = (state, ownProps) => {
+        const rowId = getRowIdFromProps(ownProps);
+        return {
+            row: getModuleRow(moduleName, rowId, state)
+        };
+    };
 
     return connect(mapStateToProps)(ExtractModuleTableItem);
 }

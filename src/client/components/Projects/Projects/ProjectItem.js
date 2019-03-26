@@ -5,7 +5,6 @@ import moment from 'moment'
 import styles from './ProjectItem.module.scss';
 
 export default ({row}) => {
-    console.log('ROW', row);
     const date = moduleUtilities.findRowCell('date', row).value;
     const name = moduleUtilities.findRowCell('name', row).value;
     const description = moduleUtilities.findRowCell('description', row).value;

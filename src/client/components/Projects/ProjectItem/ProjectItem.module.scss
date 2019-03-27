@@ -1,0 +1,38 @@
+.ProjectItem {
+  width: 100%;
+
+  &__imageContainer {
+    width: 400px;
+    min-width: 400px;
+    padding: 20px 10px;
+  }
+
+  &__image {
+    width: 100%;
+  }
+
+  &__descriptionContainer {
+    padding: 20px 10px;
+  }
+
+  &__name{
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  &__date{
+    font-size: 12px;
+    color: #717274;
+  }
+
+  &__imageGallery{
+    width: 100%;
+  }
+
+  &__description{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: justify;
+  }
+}

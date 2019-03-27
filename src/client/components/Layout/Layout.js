@@ -10,6 +10,10 @@ import { getProperties } from "../../reducers/properties";
 import { connect } from 'react-redux';
 import { fetchProperties } from "../../actions/properties";
 
+
+import styles from './Layout.module.scss';
+
+
 class Layout extends Component {
     componentDidMount() {
         this.props.dispatch(fetchProperties());
@@ -17,18 +21,18 @@ class Layout extends Component {
 
     render() {
         return (
-            <div className="wrapper">
-                <div className="content">
+            <div className={styles.Layout}>
+                <div className={styles.Layout__contentContainer}>
                     <Navigation {...this.props} isSecondary={true} className="navigation_secondary"/>
-                    <div className="container layout__content">
-                        <div className="layout__leftSidebar">
+                    <div className={styles.Layout__content}>
+                        <div className={styles.Layout__leftSidebar}>
                             <a href="" className="btn btn-primary layout__makeOrderBtn">Заказать звонок</a>
                         </div>
-                        <div className="layout__page">
+                        <div className={styles.Layout__page}>
                             <Switch>
                                 <Route path="/feedbacks" component={Feedbacks}/>
                             </Switch>
-                            <ProjectsRouter />
+                            <ProjectsRouter/>
                         </div>
                     </div>
                 </div>

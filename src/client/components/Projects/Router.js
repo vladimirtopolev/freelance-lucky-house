@@ -1,6 +1,6 @@
 import { Switch, Route } from 'react-router-dom';
 import Projects from './Projects/ProjectsContainer';
-import ProjectItem from './ProjectItem/ProjectItemContainer';
+import ProjectItem from './ProjectItem/ProjectItem';
 import React from 'react';
 
 export default () => {

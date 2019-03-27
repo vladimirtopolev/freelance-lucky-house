@@ -14,7 +14,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1
@@ -47,8 +47,8 @@ const ProjectItem = ({ row }) => {
             <div className={styles.ProjectItem__imageGallery}>
                 <Slider {...settings}>
                     {images.map((img, i) => (
-                        <div key={i}>
-                                <img src={img.photo} style={{width: `500px`}}/>
+                        <div key={i} className={styles.ProjectItem__imageContainer}>
+                            <span style={{backgroundImage: `url(${img.photo})`}} className={styles.ProjectItem__image}></span>
                         </div>
                     ))}
                 </Slider>

@@ -44,38 +44,29 @@ const ProjectItem = ({ row }) => {
             <div className={styles.ProjectItem__date}>
                 {moment(date).format('DD/MM/YYYY')}
             </div>
+
             <div className={styles.ProjectItem__imageGallery}>
                 <Slider {...settings}>
                     {images.map((img, i) => (
                         <div key={i} className={styles.ProjectItem__imageContainer}>
                             <span style={{backgroundImage: `url(${img.photo})`}} className={styles.ProjectItem__image}></span>
+                            <button className={styles.ProjectItem__imageZoomBtn}
+                            onClick={() => toggleGallery(true) }>
+                                <i className="fas fa-search"></i>
+                            </button>
                         </div>
                     ))}
                 </Slider>
             </div>
-            {/*}
-            <div className={styles.ProjectItem__imageContainer}>
-                <a href="" className={styles.ProjectItem__imageLink} onClick={(e) => {
-                    e.preventDefault();
-                    toggleGallery(true);
-                }}>
-                    <img src={image} alt="Main project photo" className={styles.ProjectItem__image}/>
-                </a>
-                <button onClick={() => toggleGallery(true)}>Смотреть все фото</button>
+            <div className={styles.ProjectItem__description}
+                 dangerouslySetInnerHTML={{ __html: description }}>
             </div>
-            <div className={styles.ProjectItem__descriptionContainer}>
 
-
-                <div className={styles.ProjectItem__description}
-                     dangerouslySetInnerHTML={{ __html: description }}>
-                </div>
-
-                <ReactBnbGallery
-                    show={isGalleryOpened}
-                    showThumbnails={false}
-                    photos={images}
-                    onClose={() => toggleGallery(!isGalleryOpened)}/>
-            </div> */}
+            <ReactBnbGallery
+                show={isGalleryOpened}
+                showThumbnails={false}
+                photos={images}
+                onClose={() => toggleGallery(!isGalleryOpened)}/>
         </div>
     );
 };

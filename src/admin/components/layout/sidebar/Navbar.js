@@ -18,6 +18,11 @@ const links = [
     },
     {
         iconClassName: 'fa fa-table link__icon',
+        title: 'Заказанные звонки',
+        href: `/${ADMIN_URL}/orderedCalls`
+    },
+    {
+        iconClassName: 'fa fa-table link__icon',
         title: 'Таблицы',
         href: '#',
         links: [

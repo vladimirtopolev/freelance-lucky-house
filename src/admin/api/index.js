@@ -58,3 +58,12 @@ export function updateTableRow(tableName, idRow, row) {
 export function deleteTableRow(tableName, idRow) {
     return clientApi.delete(`/api/${MODULE_TABLE_DOMAIN}/${tableName}/rows/${idRow}`);
 }
+
+// ORDERED CALLS
+export function getOrderedCalls() {
+    return clientApi.get('/api/orderCall');
+}
+
+export function createNewOrderedCall(newOrderedCall){
+    return clientApi.post('/api/orderCall', newOrderedCall);
+}

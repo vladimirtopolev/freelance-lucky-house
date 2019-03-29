@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import Navigation from './Navigation/Navigation';
 import AboutUs from './AboutUs/AboutUs';
+import MakeOrder from '../MakeOrder/MakeOrder';
 import Projects from './Projects/Projects';
 import Feedbacks from './Feedbacks/Feedbacks';
 import Footer from './Footer/Footer';
@@ -41,8 +42,7 @@ class App extends Component {
                                             <div className="main-description__item">Ремонт, отделочные работы</div>
                                         </div>
                                         <div className="main-description__bar">
-                                            <button className="btn btn-primary main-description__btn">Заказать звонок
-                                            </button>
+                                            <MakeOrder/>
                                         </div>
                                     </div>
                                 </div>

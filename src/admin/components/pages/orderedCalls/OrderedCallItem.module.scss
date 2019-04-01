@@ -1,0 +1,59 @@
+.OrderedCallItem {
+  padding: 15px;
+  border: 1px solid #efefef;
+  background: #fff;
+  margin-bottom: 10px;
+  position: relative;
+
+
+  &__deleteBtn{
+    position: absolute;
+    right: 15px;
+    top:15px;
+  }
+  &__container {
+    display: table;
+  }
+
+  &__field {
+    display: table-row;
+  }
+
+  &__fieldName, &__fieldValue {
+    display: table-cell;
+    padding: 5px 10px 0px 10px;
+    font-size: 14px;
+  }
+
+  &__fieldName {
+    font-weight: bold;
+  }
+
+  &__bottom {
+      display: flex;
+    justify-content: flex-end;
+  }
+
+  &__dateContainer {
+    font-size: 12px;
+    display: table;
+  }
+
+  &__dateItem {
+    display: table-row;
+
+  }
+
+  &__dateLabel {
+    display: table-cell;
+    padding: 2px 5px;
+    text-align: right;
+  }
+
+  &__date {
+    display: table-cell;
+    padding: 2px 5px;
+    text-align: center;
+  }
+
+}

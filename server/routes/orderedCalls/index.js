@@ -34,21 +34,47 @@ function orderCall(req, res) {
 }
 
 function deleteOrderedCall(req, res) {
-    OrderedCall.findById(req.params.callId, function (err, ordedCall) {
+    OrderedCall.findById(req.params.callId, function (err, orderedCall) {
         if (err) {
             return res.status(500).json({ error: 'Internal issue' });
         }
-        if (!ordedCall) {
-            res.status(404).json({error: 'Could not fil call with this id'});
+        if (!orderedCall) {
+            res.status(404).json({ error: 'Could not fil call with this id' });
         }
-        ordedCall.isDeleted = true;
-        ordedCall.save(function (err) {
+        orderedCall.isDeleted = true;
+        orderedCall.save(function (err) {
             if (err) {
                 return res.status(500).json({ error: 'Internal issue' });
             }
-            res.json(ordedCall);
+            res.json(orderedCall);
         });
     });
+}
+
+function updateOrderedCall(req, res) {
+    OrderedCall.findById(req.params.callId, function (err, orderedCall) {
+        if (err) {
+            return res.status(500).json({ error: 'Internal issue' });
+        }
+        if (!orderedCall) {
+            res.status(404).json({ error: 'Could not fil call with this id' });
+        }
+
+        const changedFields = req.body;
+
+        if (changedFields.status !== orderedCall.status) {
+            changedFields.statusDates = Object.assign({}, orderedCall.statusDates, {
+                [changedFields.status]: new Date()
+            })
+        }
+        orderedCall.set(changedFields);
+        orderedCall.save(function (err) {
+            if (err) {
+                return res.status(500).json({ error: 'Internal issue' });
+            }
+            res.json(orderedCall);
+        })
+    })
 }
 
 
@@ -59,5 +85,6 @@ export default (app) => {
 
 
     app.route('/api/orderCall/:callId')
+        .put(updateOrderedCall)
         .delete(deleteOrderedCall);
 }

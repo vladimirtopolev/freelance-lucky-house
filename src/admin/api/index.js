@@ -67,3 +67,8 @@ export function getOrderedCalls() {
 export function createNewOrderedCall(newOrderedCall){
     return clientApi.post('/api/orderCall', newOrderedCall);
 }
+
+
+export function changeOrderedCall(callId, changedFileds) {
+    return clientApi.put(`/api/orderCall/${callId}`, changedFileds)
+}

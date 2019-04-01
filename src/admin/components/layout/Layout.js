@@ -7,7 +7,7 @@ import Sidebar from './sidebar/Sidebar';
 
 import Properties from '../pages/properties/Properties';
 import ModuleTable from '../pages/moduleTable/ModuleTable';
-import OrderedCalls from '../pages/orderedCalls/OrderedCalls';
+import OrderedCalls from '../pages/orderedCalls/OrderedCallsPanel';
 
 export default () => (
     <div className={styles.layout}>

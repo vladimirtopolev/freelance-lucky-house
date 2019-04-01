@@ -1,0 +1,10 @@
+.GroupOrderedCalls{
+  flex: 1 1 0;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+
+  &__content{
+    flex-grow: 1;
+  }
+}

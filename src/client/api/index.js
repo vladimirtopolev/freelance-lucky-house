@@ -19,3 +19,7 @@ export function getTable(tableName) {
 export function getTableRow(tableName, rowId) {
     return clientApi.get(`/api/${MODULE_TABLE_DOMAIN}/${tableName}/rows/${rowId}`);
 }
+
+export function orderCall(callDescriptions) {
+    return clientApi.post(`/api/orderCall`, callDescriptions )
+}

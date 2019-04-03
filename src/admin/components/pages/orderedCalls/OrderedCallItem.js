@@ -1,12 +1,18 @@
 import React from 'react';
 import moment from 'moment';
 import { Draggable } from 'react-beautiful-dnd';
+import * as api from '../../../api';
 
 import { CREATED, IN_PROGRESS, COMPLETED } from './status';
 
 import styles from './OrderedCallItem.module.scss';
 
-export default ({ item, index }) => {
+export default ({ item, index, deleteOrderedCall }) => {
+    const deleteItem = (ev) => {
+        ev.preventDefault();
+        deleteOrderedCall(item._id);
+    };
+
     return (
         <Draggable draggableId={item._id} index={index}>
             {(provided) => (
@@ -15,7 +21,7 @@ export default ({ item, index }) => {
                      {...provided.dragHandleProps}
                      ref={provided.innerRef}>
                     <div className={styles.OrderedCallItem__container}>
-                        <a href="#" className={styles.OrderedCallItem__deleteBtn}>
+                        <a href="#" className={styles.OrderedCallItem__deleteBtn} onClick={deleteItem}>
                             <i className="fas fa-times"></i>
                         </a>
                         <div className={styles.OrderedCallItem__field}>

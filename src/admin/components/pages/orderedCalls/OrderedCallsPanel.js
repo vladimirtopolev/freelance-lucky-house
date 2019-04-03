@@ -28,6 +28,13 @@ export default (props) => {
             })
     };
 
+    const deleteOrderedCall = (callId) => {
+        api.deleteOrderedCall(callId)
+            .then(()=> {
+                fetchOrderedCalls();
+            });
+    };
+
     let timer;
     useEffect(() => {
         fetchOrderedCalls();
@@ -56,6 +63,7 @@ export default (props) => {
                         <GroupOrderedCalls key={group}
                                            id={group}
                                            title={STATUSES_DESCRIPTIONS[group].title}
+                                           deleteOrderedCall={deleteOrderedCall}
                                            orderedCalls={groupsOrderedCalls[group]}/>
                     )}
             </DragDropContext>

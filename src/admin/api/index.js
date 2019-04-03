@@ -72,3 +72,7 @@ export function createNewOrderedCall(newOrderedCall){
 export function changeOrderedCall(callId, changedFileds) {
     return clientApi.put(`/api/orderCall/${callId}`, changedFileds)
 }
+
+export function deleteOrderedCall(callId) {
+    return clientApi.delete(`/api/orderCall/${callId}`)
+}

@@ -5,7 +5,9 @@ import {getPropertyValue} from '../../../utilities/properties';
 import styles from './Footer.module.scss';
 
 export default ({properties}) => {
-    const phone = getPropertyValue(properties, 'phone');
+    const phone1 = getPropertyValue(properties, 'phone1');
+    const phone2 = getPropertyValue(properties, 'phone1');
+
     const mail = getPropertyValue(properties, 'mail');
     const copyright = getPropertyValue(properties, 'copyright');
     const linkVK = getPropertyValue(properties, 'link_vk');
@@ -25,8 +27,16 @@ export default ({properties}) => {
                     </div>
                     <div className={styles.Footer__contacts}>
                         <div className={styles.Footer__itemContact}>
-                            <i className={cn('fa','fa-phone', styles.Footer__itemContactLabel)}></i>
-                            {phone}
+                            <img src={require('../../../../img/mts.png')}
+                                 alt="mts"
+                                 className="navbar-contact__description-icon"/>
+                            {phone1}
+                        </div>
+                        <div className={styles.Footer__itemContact}>
+                            <img src={require('../../../../img/megaphone.png')}
+                                 alt="mts"
+                                 className="navbar-contact__description-icon"/>
+                            {phone2}
                         </div>
                         <div  className={styles.Footer__itemContact}>
                             <i className={cn('fa','fa-envelope', styles.Footer__itemContactLabel)}></i>

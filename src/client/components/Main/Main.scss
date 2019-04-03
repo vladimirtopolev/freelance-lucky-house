@@ -246,6 +246,11 @@ $navbar-vertical-padding: 10px;
   &__description-item {
     padding: 5px;
   }
+
+  &__description-icon{
+    max-width: 24px;
+    margin-right: 7px;
+  }
 }
 
 .main-slider {

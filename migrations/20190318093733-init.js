@@ -5,7 +5,7 @@ module.exports = {
     async up(db) {
         await getMongooseConnection()
             .then((config) => {
-                console.log(`Migration script connect to DB: ${config.url}`)
+                console.log(`Migration script connect to DB: ${config.url}`);
                 return populateInitDB()
             })
 

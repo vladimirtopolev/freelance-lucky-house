@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import Feedbacks from '../Feedbacks/Feedbacks';
+import MakeOrder from '../MakeOrder/MakeOrder';
 import ProjectsRouter from '../Projects/Router';
 
 import Navigation from '../Main/Navigation/Navigation';
@@ -26,7 +27,7 @@ class Layout extends Component {
                     <Navigation {...this.props} isSecondary={true} className="navigation_secondary"/>
                     <div className={styles.Layout__content}>
                         <div className={styles.Layout__leftSidebar}>
-                            <a href="" className="btn btn-primary layout__makeOrderBtn">Заказать звонок</a>
+                            <MakeOrder />
                         </div>
                         <div className={styles.Layout__page}>
                             <Switch>

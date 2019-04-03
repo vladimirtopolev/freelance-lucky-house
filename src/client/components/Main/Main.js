@@ -5,6 +5,7 @@ import Navigation from './Navigation/Navigation';
 import AboutUs from './AboutUs/AboutUs';
 import MakeOrder from '../MakeOrder/MakeOrder';
 import Projects from './Projects/Projects';
+import Workflow from './Workflow/Workflow';
 import Feedbacks from './Feedbacks/Feedbacks';
 import Footer from './Footer/Footer';
 
@@ -123,6 +124,7 @@ class App extends Component {
                         </div>
                     </div>
                 </div>
+                <Workflow />
                 <Feedbacks/>
                 <Footer {...this.props}/>
             </div>

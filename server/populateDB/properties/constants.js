@@ -6,11 +6,19 @@ module.exports =  [
     {
         _id: new ObjectId(),
         type: 'INPUT',
-        name: 'Телефон',
-        internalName: 'phone',
+        name: 'Телефон МТС',
+        internalName: 'phone1',
         order: 1,
         value: '+7 981 400 74 03',
 
+    },
+    {
+        _id: new ObjectId(),
+        type: 'INPUT',
+        name: 'Телефон Мегафон',
+        internalName: 'phone2',
+        order: 1,
+        value: '+7 981 400 74 03',
     },
     {
         _id: new ObjectId(),

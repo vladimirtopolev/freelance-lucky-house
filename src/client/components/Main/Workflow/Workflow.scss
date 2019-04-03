@@ -1,0 +1,68 @@
+$primary-color: #fca12a;
+$secondary-color: #17639d;
+$text-color: #717274;
+$text-color-secondary: #24292e;
+
+.workflow {
+  background: #efefef;
+  padding-top: 20px;
+  padding-bottom: 30px;
+
+  &__content {
+    display: flex;
+  }
+
+  &__item {
+    width: 25%;
+  }
+
+
+  &__itemOrder {
+    font-size: 50px;
+    line-height: 45px;
+    font-weight: bold;
+    padding-left: 10px;
+  }
+
+  &__itemTitle {
+    display: inline-block;
+    background: $primary-color;
+    padding: 2px 15px;
+    border-radius: 15px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  &__itemLine {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    height: 0;
+    border-top: 4px dashed $primary-color;
+    position: relative;
+
+    &:after {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 40px;
+      bottom: -20px;
+      position: absolute;
+      background: $primary-color;
+    }
+  }
+
+  &__item:last-child {
+    .workflow__itemLine:before{
+      content: '';
+      display: block;
+      width: 6px;
+      height: 40px;
+      bottom: -20px;
+      right: 0;
+      position: absolute;
+      background: $primary-color;
+    }
+  }
+}

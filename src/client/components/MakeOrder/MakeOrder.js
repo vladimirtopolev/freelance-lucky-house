@@ -37,7 +37,11 @@ export default (props) => {
     return (
         <div className={styles.MakeOrder}>
             <button className={styles.MakeOrder__button}
-                    onClick={() => toggleModalState(true)}>Заказать звонок
+                    onClick={(e) => {
+                        e.persist();
+                        e.preventDefault();
+                        toggleModalState(true)
+                    }}>Заказать звонок
             </button>
             <Modal className={styles.MakeOrder__modal}
                    isOpen={isOpen}
@@ -48,7 +52,10 @@ export default (props) => {
                         <div className={styles.MakeOrder__message}>
                             <a href="#"
                                className={styles.MakeOrder__closeMessageBtn}
-                               onClick={closeModal}>
+                               onClick={(e) => {
+                                   e.preventDefault();
+                                   closeModal()
+                               }}>
                                 <i className="fas fa-times"></i>
                             </a>
                             Спасибо за интерес к нам. Мы с Вами свяжемся в ближайшее время.
@@ -62,12 +69,16 @@ export default (props) => {
                         render={
                             ({ handleSubmit, form, submitting, pristine, values }) => {
                                 return (
-                                    <form onSubmit={handleSubmit} className={styles.MakeOrder__form}>
+                                    <form onSubmit={handleSubmit}
+                                          className={styles.MakeOrder__form}>
                                         <h1 className={styles.MakeOrder__formTitle}>
                                             Заказать звонок
                                             <a href="#"
                                                className={styles.MakeOrder__closeModalBtn}
-                                               onClick={closeModal}>
+                                               onClick={(e) => {
+                                                   e.preventDefault();
+                                                   closeModal();
+                                               }}>
                                                 <i className="fas fa-times"></i>
                                             </a>
                                         </h1>
@@ -134,7 +145,7 @@ export default (props) => {
                                             <button type="submit"
                                                     disabled={submitting || pristine}
                                                     className={cn(styles.MakeOrder__formBtn,
-                                                        {[styles.MakeOrder__formBtn_disable]: submitting || pristine})}>
+                                                        { [styles.MakeOrder__formBtn_disable]: submitting || pristine })}>
                                                 Отправить запрос
                                             </button>
                                         </div>

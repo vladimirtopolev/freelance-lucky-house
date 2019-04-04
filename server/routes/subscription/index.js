@@ -46,7 +46,9 @@ function unsubscribe(req, res) {
 
 export default (app) => {
     app.route('/api/subscriptions')
-        .get(getSubscriptions)
+        .get(getSubscriptions);
+
+    app.route('/api/subscribe')
         .post(subscribe);
 
 

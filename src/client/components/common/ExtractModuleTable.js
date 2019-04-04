@@ -15,9 +15,11 @@ export default moduleName => ModuleComponent => {
         }
     }
 
-    const mapStateToProps = (state) => ({
-        rows: getModuleRows(moduleName, state)
-    });
+    const mapStateToProps = (state) => {
+        return {
+            rows: getModuleRows(moduleName, state),
+        }
+    };
 
     return connect(mapStateToProps)(ExtractModuleTable);
 }

@@ -23,3 +23,7 @@ export function getTableRow(tableName, rowId) {
 export function orderCall(callDescriptions) {
     return clientApi.post(`/api/orderCall`, callDescriptions )
 }
+
+export function subscribe(subscription) {
+    return clientApi.post('/api/subscribe', subscription)
+}

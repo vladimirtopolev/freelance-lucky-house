@@ -5,7 +5,11 @@
 
   position: relative;
 
-  &:after{
+  &__descriptionContainer {
+
+  }
+
+  &:after {
     position: absolute;
     content: '';
     height: 1px;
@@ -42,5 +46,10 @@
 
   &__description {
     margin-top: 15px;
+  }
+
+  &__link{
+    margin-bottom: 10px;
+    text-align: right;
   }
 }

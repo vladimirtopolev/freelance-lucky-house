@@ -22,8 +22,8 @@ export default ({properties}) => {
                     </div>
                     <div className={styles.Footer__socials}>
                         <a href={linkVK} className={cn(styles.Social, styles.Social_vk)} target="_blank"></a>
-                        <a href={linkFB} className={cn(styles.Social, styles.Social_fb)}></a>
-                        <a href={linkINST} className={cn(styles.Social, styles.Social_instagram)}></a>
+                        <a href={linkFB} className={cn(styles.Social, styles.Social_fb)} target="_blank"></a>
+                        <a href={linkINST} className={cn(styles.Social, styles.Social_instagram)} target="_blank"></a>
                     </div>
                     <div className={styles.Footer__contacts}>
                         <div className={styles.Footer__itemContact}>

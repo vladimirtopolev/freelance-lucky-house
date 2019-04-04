@@ -12,7 +12,6 @@ export default ({ row }) => {
     const description = moduleUtilities.findRowCell('description', row).value;
     const image = moduleUtilities.findRowCell('image', row).value;
 
-    console.log(row);
     return (
         <div className={styles.ProjectItem}>
             <div className={styles.ProjectItem__imageContainer}>
@@ -24,7 +23,9 @@ export default ({ row }) => {
                 <div className={styles.ProjectItem__description}
                      dangerouslySetInnerHTML={{ __html: description }}>
                 </div>
-
+                <div className={styles.ProjectItem__link}>
+                    <Link to={`/projects/${row._id}`} className="btn btn-primary">Подробнее</Link>
+                </div>
             </div>
         </div>
     );

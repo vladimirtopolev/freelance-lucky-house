@@ -3,9 +3,14 @@ $primary-color: #fca12a;
 .ProjectItem {
   width: 100%;
 
+  &__descriptionContainer {
+    display: flex;
+    margin-bottom: 10px;
+  }
+
   &__imageContainer {
-    width: 400px;
-    min-width: 400px;
+    width: 500px;
+    min-width: 500px;
     padding: 20px 10px;
   }
 
@@ -14,45 +19,62 @@ $primary-color: #fca12a;
   }
 
   &__descriptionContainer {
-    padding: 20px 10px;
+    padding: 20px 40px;
+    background: #efefef;
+  }
+  &__detailsContainer {
+    width: 100%;
+  }
+
+  &__titleContainer {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: -40px;
+  }
+
+  &__title {
+    background: $primary-color;
+    padding: 10px 20px;
+    max-width: 230px;
   }
 
   &__name {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
-    margin-bottom: 10px;
+    text-align: right;
+    color: #fff;
   }
 
   &__date {
-    font-size: 12px;
-    color: #717274;
+    font-size: 14px;
+    color: #efefef;
+    text-align: right;
   }
 
   &__imageGallery {
-    width: 700px;
+    width: 600px;
   }
-
 
   &__imageZoomBtn {
     position: absolute;
     display: none;
     top: 50%;
     left: 50%;
-    margin-top: -40px;
-    margin-left: -40px;
-    width: 80px;
-    height: 80px;
+    margin-top: -25px;
+    margin-left: -25px;
+    width: 50px;
+    height: 50px;
     background: $primary-color;
     color: #fff;
     border-radius: 50%;
     border: none;
-    font-size: 24px;
+    font-size: 18px;
   }
 
   &__image {
     display: block;
     width: 100%;
-    height: 550px;
+    height: 450px;
     position: absolute;
     top: 0;
     left: 0;
@@ -62,7 +84,7 @@ $primary-color: #fca12a;
 
   &__imageContainer {
     height: 0;
-    padding-top: 550px;
+    padding-top: 450px;
     position: relative;
 
     &:hover {
@@ -75,7 +97,12 @@ $primary-color: #fca12a;
 
   &__description {
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     text-align: justify;
   }
+
+  &__descriptionTitle{
+    font-size: 16px;
+  }
 }
+

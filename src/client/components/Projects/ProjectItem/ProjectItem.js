@@ -12,6 +12,7 @@ import moment from 'moment';
 import styles from './ProjectItem.module.scss';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import './ProjectItem.scss';
 
 const settings = {
     dots: false,
@@ -38,25 +39,39 @@ const ProjectItem = ({ row }) => {
 
     return (
         <div className={styles.ProjectItem}>
-            <div className={styles.ProjectItem__name}>
-                {name}
-            </div>
-            <div className={styles.ProjectItem__date}>
-                {moment(date).format('DD/MM/YYYY')}
+
+            <div className={styles.ProjectItem__descriptionContainer}>
+                <div className={styles.ProjectItem__imageGallery}>
+                    <Slider {...settings}>
+                        {images.map((img, i) => (
+                            <div key={i} className={styles.ProjectItem__imageContainer}>
+                                <span style={{ backgroundImage: `url(${img.photo})` }}
+                                      className={styles.ProjectItem__image}></span>
+                                <button className={styles.ProjectItem__imageZoomBtn}
+                                        onClick={() => toggleGallery(true)}>
+                                    <i className="fas fa-search"></i>
+                                </button>
+                            </div>
+                        ))}
+                    </Slider>
+                </div>
+                <div className={styles.ProjectItem__detailsContainer}>
+                    <div className={styles.ProjectItem__titleContainer}>
+                        <div className={styles.ProjectItem__title}>
+                            <div className={styles.ProjectItem__name}>
+                                {name}
+                            </div>
+                            <div className={styles.ProjectItem__date}>
+                                {moment(date).format('DD/MM/YYYY')}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div className={styles.ProjectItem__imageGallery}>
-                <Slider {...settings}>
-                    {images.map((img, i) => (
-                        <div key={i} className={styles.ProjectItem__imageContainer}>
-                            <span style={{backgroundImage: `url(${img.photo})`}} className={styles.ProjectItem__image}></span>
-                            <button className={styles.ProjectItem__imageZoomBtn}
-                            onClick={() => toggleGallery(true) }>
-                                <i className="fas fa-search"></i>
-                            </button>
-                        </div>
-                    ))}
-                </Slider>
+
+            <div className="block-title">
+                Описание
             </div>
             <div className={styles.ProjectItem__description}
                  dangerouslySetInnerHTML={{ __html: description }}>

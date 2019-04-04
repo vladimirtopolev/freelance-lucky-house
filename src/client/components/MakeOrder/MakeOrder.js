@@ -23,7 +23,7 @@ export default (props) => {
     const closeModal = () => {
         toggleModalState(false);
         setTimeout(() => submitForm(false), 300);
-    }
+    };
 
     const validate = (values) => {
         return Object.assign({},
@@ -38,8 +38,6 @@ export default (props) => {
         <div className={styles.MakeOrder}>
             <button className={styles.MakeOrder__button}
                     onClick={(e) => {
-                        e.persist();
-                        e.preventDefault();
                         toggleModalState(true)
                     }}>Заказать звонок
             </button>

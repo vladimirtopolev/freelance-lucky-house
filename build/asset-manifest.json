@@ -1,0 +1,21 @@
+{
+  "main.css": "/static/css/main.58f55ec2.chunk.css",
+  "main.js": "/static/js/main.3c463f64.chunk.js",
+  "main.js.map": "/static/js/main.3c463f64.chunk.js.map",
+  "runtime~main.js": "/static/js/runtime~main.42ac5946.js",
+  "runtime~main.js.map": "/static/js/runtime~main.42ac5946.js.map",
+  "static/css/2.bad43adc.chunk.css": "/static/css/2.bad43adc.chunk.css",
+  "static/js/2.f32de57f.chunk.js": "/static/js/2.f32de57f.chunk.js",
+  "static/js/2.f32de57f.chunk.js.map": "/static/js/2.f32de57f.chunk.js.map",
+  "index.html": "/index.html",
+  "precache-manifest.e5617796518fce7668a0cb0545830c74.js": "/precache-manifest.e5617796518fce7668a0cb0545830c74.js",
+  "service-worker.js": "/service-worker.js",
+  "static/css/2.bad43adc.chunk.css.map": "/static/css/2.bad43adc.chunk.css.map",
+  "static/css/main.58f55ec2.chunk.css.map": "/static/css/main.58f55ec2.chunk.css.map",
+  "static/media/AboutUs.module.scss": "/static/media/about-us-bg.bd62ffa1.png",
+  "static/media/Project.scss": "/static/media/bg-portfolio.f2d1abe5.jpg",
+  "static/media/no-user.png": "/static/media/no-user.9df30b1b.png",
+  "static/media/noimagefound.jpg": "/static/media/noimagefound.0383a250.jpg",
+  "static/media/slick-theme.css": "/static/media/slick.f97e3bbf.svg",
+  "static/media/Main.scss": "/static/media/slider-bg.eadd5967.jpg"
+}

@@ -23,6 +23,8 @@ var _orderedCalls = _interopRequireDefault(require("./orderedCalls"));
 
 var _subscription = _interopRequireDefault(require("./subscription"));
 
+var _googleAnalitics = _interopRequireDefault(require("./googleAnalitics"));
+
 var cloudinaryConfig = _config.default.get('cloudinary');
 
 _cloudinary.default.config({
@@ -52,6 +54,7 @@ var _default = function _default(app) {
   (0, _navigation.default)(app);
   (0, _orderedCalls.default)(app);
   (0, _subscription.default)(app);
+  (0, _googleAnalitics.default)(app);
   app.route('/api/image-upload').post(saveCloudinaryImage);
 };
 

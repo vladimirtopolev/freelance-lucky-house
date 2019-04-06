@@ -7,6 +7,7 @@ import auth from './auth';
 import navigation from './navigation';
 import orderedCalls from './orderedCalls';
 import subscriptions from './subscription';
+import googleAnalitics from './googleAnalitics';
 
 const cloudinaryConfig = config.get('cloudinary');
 
@@ -36,6 +37,7 @@ export default (app) => {
     navigation(app);
     orderedCalls(app);
     subscriptions(app);
+    googleAnalitics(app);
 
     app.route('/api/image-upload')
         .post(saveCloudinaryImage);

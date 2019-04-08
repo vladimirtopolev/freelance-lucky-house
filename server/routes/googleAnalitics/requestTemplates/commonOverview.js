@@ -4,7 +4,6 @@ module.exports = {
         { expression: 'ga:newUsers' },
         { expression: 'ga:sessions' },
         { expression: 'ga:bounces' },
-        { expression: 'ga:sessionDuration' }
-
+        { expression: 'ga:avgSessionDuration' }
     ]
 };

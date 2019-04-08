@@ -11,6 +11,8 @@ import sessionsByBrowserSize from './sessionsByBrowserSize';
 import sessionsByBrowserType from './sessionsByBrowserType';
 import sessionsByCountry from './sessionsByCountry';
 
+import commonOverview from './commonOverview';
+
 module.exports = {
     usersByType,
     usersByCountry,
@@ -23,5 +25,6 @@ module.exports = {
     sessionsByDeviceCategory,
     sessionsByBrowserSize,
     sessionsByBrowserType,
-    sessionsByCountry
-}
+    sessionsByCountry,
+    commonOverview
+};

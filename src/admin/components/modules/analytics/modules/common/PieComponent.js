@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 import * as V from 'victory';
 import _ from 'lodash';
 
-import * as api from '../../../../../api/index';
 import { COLOR_SCALE } from '../constants';
 import { VictoryPie, VictoryTooltip } from 'victory';
 
 import styles from './PieComponent.module.scss';
-
+import getGoogleReport from './hooks/getGoogleReport';
 
 export default function PieComponent(
     {
@@ -22,15 +21,9 @@ export default function PieComponent(
         googleReportName,
         isHorizontal
     }) {
-    const [rawRows, setData] = useState([]);
 
-    useEffect(() => {
-        api.getReport(googleReportName)
-            .then(res => {
-                setData(_.get(res, 'data.data.reports[0].data.rows', []));
-                console.log('RES', res);
-            })
-    }, []);
+    const { rawRows, isLoading } = getGoogleReport(googleReportName);
+
     const processedData = _(rawRows)
         .orderBy(['metrics[0].values[0]'], ['desc'])
         .value()
@@ -44,7 +37,7 @@ export default function PieComponent(
         }, []);
 
     return (
-        <div className={cn(styles.PieComponent, {[styles.PieComponent__horizonal]:isHorizontal})}>
+        <div className={cn(styles.PieComponent, { [styles.PieComponent__horizonal]: isHorizontal })}>
             <div className={styles.PieComponent__pieContainer}>
                 <VictoryPie
                     data={processedData}
@@ -53,12 +46,11 @@ export default function PieComponent(
                     padAngle={padAngle}
                     labelPosition={'centroid'}
                     padding={10}
-                    labelComponent={<VictoryTooltip/>}
                 />
             </div>
             {legendContent && (
                 <div className={styles.PieComponent__legend}>
-                    {legendContent({colorScale, processedData})}
+                    {legendContent({ colorScale, processedData })}
                 </div>
             )}
         </div>

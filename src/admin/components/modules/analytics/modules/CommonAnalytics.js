@@ -1,14 +1,27 @@
 import React from 'react';
+import _ from 'lodash';
+import moment from 'moment';
 import cn from "classnames";
 import styles from "./CommonAnalytics.module.scss";
 import Tooltip from "../Tooltip";
+import getGoogleReport from './common/hooks/getGoogleReport';
 
 export default () => {
+    const { rawRows, isLoading } = getGoogleReport('commonOverview');
+
+    const users = _.get(rawRows, '[0].metrics[0].values[0]', 0);
+    const newUsers = _.get(rawRows, '[0].metrics[0].values[1]', 0);
+    const sessions = _.get(rawRows, '[0].metrics[0].values[2]', 0);
+    const bounce = _.get(rawRows, '[0].metrics[0].values[3]', 0);
+    const sessionDuration = _.get(rawRows, '[0].metrics[0].values[4]', 0);
+
+
+    console.log('OVERVIEW', rawRows);
     return (
         <div className={cn(styles.CommonAnalytics)}>
             <div className={cn(styles.CommonAnalytics__item)}>
                 <div className={cn(styles.CommonAnalytics__itemTitle)}>Число пользователей</div>
-                <div className={cn(styles.CommonAnalytics__itemValue)}>12</div>
+                <div className={cn(styles.CommonAnalytics__itemValue)}>{users}</div>
             </div>
             <div className={cn(styles.CommonAnalytics__item)}>
                 <Tooltip linkContent={() => <i className="far fa-question-circle"></i>}
@@ -21,7 +34,7 @@ export default () => {
                          className={cn(styles.CommonAnalytics__help)}
                 />
                 <div className={cn(styles.CommonAnalytics__itemTitle)}>Число новых пользователей</div>
-                <div className={cn(styles.CommonAnalytics__itemValue)}>12</div>
+                <div className={cn(styles.CommonAnalytics__itemValue)}>{newUsers}</div>
             </div>
             <div className={cn(styles.CommonAnalytics__item)}>
                 <Tooltip linkContent={() => <i className="far fa-question-circle"></i>}
@@ -33,7 +46,7 @@ export default () => {
                          className={cn(styles.CommonAnalytics__help)}
                 />
                 <div className={cn(styles.CommonAnalytics__itemTitle)}>Число отказов</div>
-                <div className={cn(styles.CommonAnalytics__itemValue)}>12</div>
+                <div className={cn(styles.CommonAnalytics__itemValue)}>{bounce}</div>
             </div>
             <div className={cn(styles.CommonAnalytics__item)}>
                 <Tooltip linkContent={() => <i className="far fa-question-circle"></i>}
@@ -46,11 +59,13 @@ export default () => {
                          className={cn(styles.CommonAnalytics__help)}
                 />
                 <div className={cn(styles.CommonAnalytics__itemTitle)}>Число сессий</div>
-                <div className={cn(styles.CommonAnalytics__itemValue)}>12</div>
+                <div className={cn(styles.CommonAnalytics__itemValue)}>{sessions}</div>
             </div>
             <div className={cn(styles.CommonAnalytics__item)}>
-                <div className={cn(styles.CommonAnalytics__itemTitle)}>Среднее время на сайте</div>
-                <div className={cn(styles.CommonAnalytics__itemValue)}>12</div>
+                <div className={cn(styles.CommonAnalytics__itemTitle)}>Среднее время на сайте, сек</div>
+                <div className={cn(styles.CommonAnalytics__itemValue)}>
+                    {moment(moment.duration(Number(sessionDuration), 'seconds').asMilliseconds()).format('mm:ss')}
+                </div>
             </div>
         </div>
     );

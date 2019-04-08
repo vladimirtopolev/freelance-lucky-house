@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
-import * as api from '../../../api';
+import * as api from '../../../api/index';
 import styles from './OrderedCallsPanel.module.scss';
 
 import { COMPLETED, IN_PROGRESS, CREATED, STATUSES, STATUSES_DESCRIPTIONS } from './status';

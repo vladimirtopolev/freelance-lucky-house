@@ -1,5 +1,5 @@
 const { google } = require('googleapis');
-
+const _ = require('lodash');
 
 export default class GoogleAnalitycs {
     constructor(clientEmail, privateKey, viewId, scopes = ['https://www.googleapis.com/auth/analytics.readonly']) {
@@ -11,7 +11,7 @@ export default class GoogleAnalitycs {
 
 
     /**
-     * @param reportRequest {Array<Object>} -
+     * @param reportRequest {Array<Object> | Object} -
      * Each object should have the following shape:
      * {
      *     dateRanges:     <Object>       (Ex.: {startDate: 'today', endDate: 'today'})
@@ -20,7 +20,7 @@ export default class GoogleAnalitycs {
      * }
      * */
     getData(reportRequests) {
-        const requests = reportRequests.map(({ dateRanges, metrics, dimensions }) => {
+        const requests = _.castArray(reportRequests).map(({ dateRanges, metrics, dimensions }) => {
             return {
                 viewId: this.viewId,
                 dateRanges,

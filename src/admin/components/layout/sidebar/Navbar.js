@@ -7,17 +7,17 @@ import {ADMIN_URL, ADMIN_TABLE_MODULE_URL} from '../../../constants';
 
 const links = [
     {
-        iconClassName: 'fa fa-table link__icon',
-        title: 'Администрирование',
-        href: '/admin'
+        iconClassName: 'fas fa-chart-pie link__icon',
+        title: 'Аналитика',
+        href: '/admin/analitics'
     },
     {
-        iconClassName: 'fa fa-table link__icon',
+        iconClassName: 'fas fa-info-circle link__icon',
         title: 'Общая информация',
         href: `/${ADMIN_URL}/properties`
     },
     {
-        iconClassName: 'fa fa-table link__icon',
+        iconClassName: 'fas fa-phone link__icon',
         title: 'Заказанные звонки',
         href: `/${ADMIN_URL}/orderedCalls`
     },
@@ -32,7 +32,7 @@ const links = [
                 href: `/${ADMIN_URL}/${ADMIN_TABLE_MODULE_URL}/projects`
             },
             {
-                iconClassName: 'fa fa-table link__icon',
+                iconClassName: 'far fa-comment-lines link__icon',
                 title: 'Отзывы',
                 href: `/${ADMIN_URL}/${ADMIN_TABLE_MODULE_URL}/feedbacks`
             }

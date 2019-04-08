@@ -1,7 +1,6 @@
 import React from 'react';
 import moment from 'moment';
 import { Draggable } from 'react-beautiful-dnd';
-import * as api from '../../../api';
 
 import { CREATED, IN_PROGRESS, COMPLETED } from './status';
 

@@ -3,7 +3,7 @@ import cn from 'classnames';
 import Header from './Header';
 import Row from './Row';
 import { Link } from 'react-router-dom'
-import { ADMIN_URL, ADMIN_TABLE_MODULE_URL } from '../../../../constants'
+import { ADMIN_URL, ADMIN_TABLE_MODULE_URL } from '../../../../constants/index'
 
 import commonStyles from '../../../common.module.scss';
 import styles from './Table.module.scss';

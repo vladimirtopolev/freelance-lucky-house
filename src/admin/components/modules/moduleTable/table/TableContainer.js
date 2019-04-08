@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchTableHeaders, fetchTableRows, deleteTableRow , fetchTable} from '../../../../actions/moduletable';
+import { fetchTableHeaders, fetchTableRows, deleteTableRow , fetchTable} from '../../../../actions/moduletable/index';
 import { getTableHeaders, getTableRows, getTableTitle } from '../../../../reducers/moduleTable';
 
 import Table from './Table';

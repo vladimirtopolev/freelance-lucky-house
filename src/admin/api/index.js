@@ -76,3 +76,9 @@ export function changeOrderedCall(callId, changedFileds) {
 export function deleteOrderedCall(callId) {
     return clientApi.delete(`/api/orderCall/${callId}`)
 }
+
+
+// GOOGLE ANALYTICS
+export function getReport(reportName) {
+    return clientApi.get(`/api/google-analytics/${reportName}`)
+}

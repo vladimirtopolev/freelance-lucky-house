@@ -7,7 +7,7 @@ import tableWrapperStyles from '../../table-wrapper.commom.module.scss';
 import styles from './Properties.module.scss';
 
 import {getProperties} from '../../../reducers/properties'
-import {fetchProperties, changePropertyValue} from '../../../actions/properties';
+import {fetchProperties, changePropertyValue} from '../../../actions/properties/index';
 import getCell from '../../common/cells/getCell'
 
 class Properties extends Component {

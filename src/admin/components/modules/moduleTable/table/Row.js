@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ADMIN_URL, ADMIN_TABLE_MODULE_URL } from '../../../../constants'
+import { ADMIN_URL, ADMIN_TABLE_MODULE_URL } from '../../../../constants/index'
 
 import getCell from '../../../common/cells/getCell';
 

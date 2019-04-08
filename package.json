@@ -48,6 +48,8 @@
     "redux-thunk": "^2.3.0",
     "slick-carousel": "^1.8.1",
     "tinymce": "^5.0.2",
+    "uniqid": "^5.0.3",
+    "victory": "^32.1.0",
     "webpack": "^4.29.6",
     "webpack-dev-middleware": "^3.6.1",
     "webpack-hot-middleware": "^2.24.3"

@@ -1,42 +1,39 @@
 import config from 'config';
+import _ from 'lodash';
 
 const { viewId, privateKey, clientEmail } = config.get('googleAnalitics');
-import GoogleAnalitics from './GoogleAnalitics';
+import GoogleAnalitics from './googleAnalitics';
+
 const googleAnalitics = new GoogleAnalitics(clientEmail, privateKey, viewId);
 
+import requestTemplates from './requestTemplates';
 
-function getAnalitics(req, res) {
+function getReport(req, res) {
+    const reportName = req.params.reportName;
+    if (!requestTemplates[reportName]) {
+        return res.status(404).json({ error: `Cannot fins template with name ${reportName}` })
+    }
 
-    const newUsersRequest = {
 
+    const dateRanges = [{
+        startDate: _.get(req, 'query.startDate', '360daysAgo'),
+        endDate: _.get(req, 'query.endDate', 'today'),
+    }];
+    const reportRequests = {
+        dateRanges,
+        ...requestTemplates[reportName]
     };
 
-    googleAnalitics.getData([{
-        dateRanges: [{
-            startDate: '30daysAgo',
-            endDate: 'today',
-        }],
-        metrics: [
-            { expression: 'ga:users' }
-        ],
-        dimensions: [
-            { name: 'ga:userType' },
-            {name: 'ga:country'}
-        ]
-    }])
-
+    googleAnalitics.getData(reportRequests)
         .then((result) => {
-            console.log('SUCCESS');
             res.json(result)
         })
         .catch(err => {
-            console.log('ERROR');
-            res.json(err)
+            res.status(505).json(err)
         });
 }
 
-
 export default (app) => {
-    app.route('/api/googleanalitics')
-        .get(getAnalitics);
+    app.route('/api/google-analytics/:reportName')
+        .get(getReport)
 }

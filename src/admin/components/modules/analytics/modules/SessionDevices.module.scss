@@ -1,0 +1,49 @@
+.SessionDevices {
+  &__pieContainer{
+    max-width: 200px;
+  }
+}
+
+.Legend {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__item {
+    text-align: center;
+    padding: 10px 20px;
+    position: relative;
+
+    &:after {
+      content: '';
+      display: block;
+      height: 1px;
+      width: 50%;
+      position: absolute;
+      right: 25%;
+      bottom: 0;
+      background: #efefef;
+    }
+  }
+
+  &__item:last-child {
+    &:after {
+      display: none;
+    }
+  }
+
+  &__itemTitle {
+    text-align: center;
+    font-size: 12px;
+  }
+
+  &__itemIcon {
+    text-align: center;
+    font-size: 24px;
+  }
+
+  &__itemValue {
+    text-align: center;
+    font-size: 18px;
+  }
+}

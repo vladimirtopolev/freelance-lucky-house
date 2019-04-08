@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom'
 import cn from 'classnames';
 import styles from './Row.module.scss';
 import commonStyles from '../../../common.module.scss';
-import { ADMIN_URL, ADMIN_TABLE_MODULE_URL } from '../../../../constants'
+import { ADMIN_URL, ADMIN_TABLE_MODULE_URL } from '../../../../constants/index'
 
 import getCell from '../../../common/cells/getCell';
 

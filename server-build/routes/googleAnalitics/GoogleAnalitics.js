@@ -14,6 +14,8 @@ var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/creat
 var _require = require('googleapis'),
     google = _require.google;
 
+var _ = require('lodash');
+
 var GoogleAnalitycs =
 /*#__PURE__*/
 function () {
@@ -26,7 +28,7 @@ function () {
     this.analitics = google.analyticsreporting('v4');
   }
   /**
-   * @param reportRequest {Array<Object>} -
+   * @param reportRequest {Array<Object> | Object} -
    * Each object should have the following shape:
    * {
    *     dateRanges:     <Object>       (Ex.: {startDate: 'today', endDate: 'today'})
@@ -41,7 +43,7 @@ function () {
     value: function getData(reportRequests) {
       var _this = this;
 
-      var requests = reportRequests.map(function (_ref) {
+      var requests = _.castArray(reportRequests).map(function (_ref) {
         var dateRanges = _ref.dateRanges,
             metrics = _ref.metrics,
             dimensions = _ref.dimensions;
@@ -52,6 +54,7 @@ function () {
           dimensions: dimensions
         };
       });
+
       var resource = {
         reportRequests: requests
       };

@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchTableHeaders, fetchTableRows, deleteTableRow , fetchTable} from '../../../../actions/moduletable/index';
+import { deleteTableRow, fetchTable } from '../../../../actions/moduletable';
+import { FETCH_ADMIN_TABLE } from '../../../../actions/moduletable/type';
+
 import { getTableHeaders, getTableRows, getTableTitle } from '../../../../reducers/moduleTable';
+import { getIsLoadingStatus } from '../../../../reducers/stateRequest';
+
+import Spinner from '../../../common/Spinner';
 
 import Table from './Table';
 
@@ -17,12 +22,14 @@ class TableContainer extends Component {
     };
 
     render() {
-        return <Table
-            tableName={this.props.match.params.tableName}
-            tableTitle={this.props.tableTitle}
-            headers={this.props.headers}
-            rows={this.props.rows}
-            deleteRow={this.deleteRow}/>
+        return (
+            <Spinner
+                tableName={this.props.match.params.tableName}
+                deleteRow={this.deleteRow}
+                {...this.props}>
+                <Table/>
+            </Spinner>
+        );
     }
 }
 
@@ -31,8 +38,9 @@ function mapStateToProps(state, ownProps) {
     return {
         headers: getTableHeaders(tableName, state),
         rows: getTableRows(tableName, state),
-        tableTitle: getTableTitle(tableName, state)
+        tableTitle: getTableTitle(tableName, state),
+        isLoading: getIsLoadingStatus(FETCH_ADMIN_TABLE, state)
     }
 }
 
-export default connect(mapStateToProps)(TableContainer)
+export default connect(mapStateToProps)(TableContainer);

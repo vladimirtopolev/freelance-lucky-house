@@ -1,11 +1,12 @@
 import {
-    FETCH_ADMIN_TABLE,
-    FETCH_ADMIN_TABLE_HEADERS,
     FETCH_ADMIN_TABLE_ROWS,
-    FETCH_ADMIN_TABLE_ROW,
     NEW_ADMIN_TABLE_ROW,
     UPDATE_ADMIN_TABLE_ROW,
-    DELETE_ADMIN_TABLE_ROW
+    DELETE_ADMIN_TABLE_ROW,
+
+    FETCH_ADMIN_TABLE_SUCCESS,
+    FETCH_ADMIN_TABLE_HEADERS_SUCCESS,
+    FETCH_ADMIN_TABLE_ROW_SUCCESS
 } from '../actions/moduletable/type';
 
 const INIT_STATE = {
@@ -19,7 +20,7 @@ const INIT_STATE = {
 
 export default (state = INIT_STATE, action) => {
     switch (action.type) {
-        case FETCH_ADMIN_TABLE: {
+        case FETCH_ADMIN_TABLE_SUCCESS: {
             const table = action.payload.response.entities.table[action.payload.response.result];
             return {
                 ...state,
@@ -34,7 +35,7 @@ export default (state = INIT_STATE, action) => {
             }
         }
 
-        case FETCH_ADMIN_TABLE_HEADERS: {
+        case FETCH_ADMIN_TABLE_HEADERS_SUCCESS: {
             const newTableItem =
                 {
                     ...state[action.payload.tableName],
@@ -58,7 +59,7 @@ export default (state = INIT_STATE, action) => {
                 }
             }
         }
-        case FETCH_ADMIN_TABLE_ROW: {
+        case FETCH_ADMIN_TABLE_ROW_SUCCESS: {
             const table = state[action.payload.tableName];
             const entities = action.payload.response.entities;
             const cells = { ...table.cells, ...entities.cells };

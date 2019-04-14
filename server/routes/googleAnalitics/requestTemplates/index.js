@@ -10,6 +10,10 @@ import sessionsByDeviceCategory from './sessionsByDeviceCategory';
 import sessionsByBrowserSize from './sessionsByBrowserSize';
 import sessionsByBrowserType from './sessionsByBrowserType';
 import sessionsByCountry from './sessionsByCountry';
+import sessionsByUser from './sessionsByUser';
+import sessionDurationByUser from './sessionDurationByUser';
+
+import bouncesByUser from './bouncesByUser';
 
 import commonOverview from './commonOverview';
 
@@ -26,5 +30,10 @@ module.exports = {
     sessionsByBrowserSize,
     sessionsByBrowserType,
     sessionsByCountry,
+    sessionsByUser,
+    sessionDurationByUser,
+
+    bouncesByUser,
+
     commonOverview
 };

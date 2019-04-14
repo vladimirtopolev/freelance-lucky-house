@@ -1,11 +1,11 @@
 module.exports = {
     metrics: [
         { expression: 'ga:pageviews' },
-        { expression: 'ga:timeOnPage' },
         { expression: 'ga:uniquePageviews' },
+        { expression: 'ga:avgTimeOnPage' },
         { expression: 'ga:entrances' },
-        { expression: 'ga:exits' }
-
+        { expression: 'ga:exits' },
+        { expression: 'ga:pageviewsPerSession' }
     ],
     dimensions: [
         { name: 'ga:pagePath' }

@@ -2,9 +2,14 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 
 import Row from './Row';
+import Spinner from '../../../common/Spinner';
 import { connect } from 'react-redux';
 import { fetchTableHeaders, fetchTableRow, saveTableRow, updateTableRow } from '../../../../actions/moduletable';
+import { FETCH_ADMIN_TABLE_ROW, FETCH_ADMIN_TABLE_HEADERS } from '../../../../actions/moduletable/type';
+
+
 import { getTableHeaders, getTableRow } from '../../../../reducers/moduleTable';
+import { getIsLoadingStatus } from '../../../../reducers/stateRequest';
 
 
 class RowContainer extends Component {
@@ -49,27 +54,34 @@ class RowContainer extends Component {
         const { tableName, rowId } = this.props.match.params;
         if (rowId === 'new') {
             const cells = this.state.cells.map(cell => ({ ...cell, type: cell.type._id }));
-            this.props.dispatch(saveTableRow(tableName, { cells }));
-        } else {
-            this.props.dispatch(updateTableRow(tableName, rowId, { cells: this.state.cells }));
+            return this.props.dispatch(saveTableRow(tableName, { cells }));
         }
+        return this.props.dispatch(updateTableRow(tableName, rowId, { cells: this.state.cells }));
     };
 
     render() {
-        return <Row isNew={this.state.isNew}
-                    headers={this.props.headers}
-                    cells={this.state.cells}
-                    changeCell={this.changeCell}
-                    saveRow={this.saveRow}/>
+        return (
+            <Spinner
+                isNew={this.state.isNew}
+                headers={this.props.headers}
+                cells={this.state.cells}
+                changeCell={this.changeCell}
+                saveRow={this.saveRow}
+                {...this.props}>
+                <Row/>
+            </Spinner>
+        )
     }
 }
 
 function mapStateToProps(state, ownProps) {
     const { tableName, rowId } = ownProps.match.params;
-    console.log(tableName, rowId, state);
     return {
         headers: getTableHeaders(tableName, state),
-        row: getTableRow(tableName, rowId, state)
+        row: getTableRow(tableName, rowId, state),
+        isLoading: rowId === 'new'
+            ? getIsLoadingStatus(FETCH_ADMIN_TABLE_HEADERS, state)
+            : getIsLoadingStatus([FETCH_ADMIN_TABLE_HEADERS, FETCH_ADMIN_TABLE_ROW], state)
     }
 }
 

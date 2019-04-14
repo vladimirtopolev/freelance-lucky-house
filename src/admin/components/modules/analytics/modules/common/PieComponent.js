@@ -1,17 +1,21 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 import * as V from 'victory';
 import _ from 'lodash';
 
 import { COLOR_SCALE } from '../constants';
 import { VictoryPie, VictoryTooltip } from 'victory';
+import Spinner from './Spinner';
 
 import styles from './PieComponent.module.scss';
 import getGoogleReport from './hooks/getGoogleReport';
 
 export default function PieComponent(
     {
+        startDate,
+        endDate,
         legendContent,
         maxSegments,
         colorScale,
@@ -22,7 +26,8 @@ export default function PieComponent(
         isHorizontal
     }) {
 
-    const { rawRows, isLoading } = getGoogleReport(googleReportName);
+    const { rawRows, isLoading } = getGoogleReport(googleReportName, startDate, endDate);
+
 
     const processedData = _(rawRows)
         .orderBy(['metrics[0].values[0]'], ['desc'])
@@ -38,21 +43,27 @@ export default function PieComponent(
 
     return (
         <div className={cn(styles.PieComponent, { [styles.PieComponent__horizonal]: isHorizontal })}>
-            <div className={styles.PieComponent__pieContainer}>
-                <VictoryPie
-                    data={processedData}
-                    colorScale={colorScale}
-                    innerRadius={innerRadius}
-                    padAngle={padAngle}
-                    labelPosition={'centroid'}
-                    padding={10}
-                />
-            </div>
-            {legendContent && (
-                <div className={styles.PieComponent__legend}>
-                    {legendContent({ colorScale, processedData })}
-                </div>
-            )}
+            {isLoading
+                ? <Spinner/>
+                : (
+                    <Fragment>
+                        <div className={styles.PieComponent__pieContainer}>
+                            <VictoryPie
+                                data={processedData}
+                                colorScale={colorScale}
+                                innerRadius={innerRadius}
+                                padAngle={padAngle}
+                                labelPosition={'centroid'}
+                                padding={10}
+                            />
+                        </div>
+                        {legendContent && (
+                            <div className={styles.PieComponent__legend}>
+                                {legendContent({ colorScale, processedData })}
+                            </div>
+                        )}
+                    </Fragment>
+                )}
         </div>
     );
 }

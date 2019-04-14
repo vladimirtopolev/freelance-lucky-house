@@ -46,7 +46,7 @@ class Properties extends Component {
                             <li className={cn({[styles.Properties__switcher_selected]: this.state.editMode})}>
 
                                 <button onClick={this.toggleEditState.bind(null, true)}>
-                                    <i class="fas fa-edit"></i>
+                                    <i className="fas fa-edit"></i>
                                 </button>
                             </li>
                         </ul>

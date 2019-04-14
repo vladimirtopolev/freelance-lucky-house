@@ -44,4 +44,4 @@ export default ({ tableName, tableTitle, headers, rows, deleteRow }) => {
             </div>
         </div>
     );
-}
+};

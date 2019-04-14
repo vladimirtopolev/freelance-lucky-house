@@ -1,0 +1,47 @@
+$primary-color: #00acac;
+
+.DateRangePicker {
+  &__date {
+    display: inline-block;
+    padding: 5px 10px;
+    background: $primary-color;
+    color: #ffff;
+    margin: 0 5px;
+  }
+
+  &__btnChangeDateRange {
+    display: inline-block;
+    border: none;
+    background: none;
+    color: $primary-color;
+    border-bottom: 1px dashed $primary-color;
+    margin-left: 10px;
+
+    &:hover{
+      outline: none;
+      border-bottom: none;
+    }
+
+    &:focus, &:visited{
+      outline: none;
+    }
+  }
+
+  &__btnContainer{
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__btn{
+    color: #fff;
+    background: $primary-color;
+    border: 1px solid $primary-color;
+    padding: 5px 10px;
+
+    &:hover{
+      background: none;
+      color: $primary-color;
+    }
+  }
+}

@@ -14,7 +14,6 @@ function getReport(req, res) {
         return res.status(404).json({ error: `Cannot fins template with name ${reportName}` })
     }
 
-
     const dateRanges = [{
         startDate: _.get(req, 'query.startDate', '360daysAgo'),
         endDate: _.get(req, 'query.endDate', 'today'),

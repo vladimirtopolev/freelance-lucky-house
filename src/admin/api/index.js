@@ -64,7 +64,7 @@ export function getOrderedCalls() {
     return clientApi.get('/api/orderCall');
 }
 
-export function createNewOrderedCall(newOrderedCall){
+export function createNewOrderedCall(newOrderedCall) {
     return clientApi.post('/api/orderCall', newOrderedCall);
 }
 
@@ -79,6 +79,8 @@ export function deleteOrderedCall(callId) {
 
 
 // GOOGLE ANALYTICS
-export function getReport(reportName) {
-    return clientApi.get(`/api/google-analytics/${reportName}`)
+export function getReport(reportName, startDate, endDate) {
+    const queryParams = (startDate && endDate)
+        ? `?startDate=${startDate}&endDate=${endDate}` : '';
+    return clientApi.get(`/api/google-analytics/${reportName}${queryParams}`)
 }

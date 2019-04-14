@@ -5,28 +5,30 @@
   &__item {
     flex: 1;
     margin-right: 10px;
-    padding: 30px 20px;
+    padding: 20px;
     background: #00acac;
     display: flex;
+    flex-direction: column;
     color: #fff;
     position: relative;
   }
 
   &__help {
     position: absolute;
-    top:5px;
-    right:5px;
+    top: 5px;
+    right: 5px;
     color: #fff;
   }
 
   &__itemTitle {
     flex: 1;
-    padding-right: 10px;
+    text-align: right;
   }
 
   &__itemValue {
     font-size: 60px;
     line-height: 50px;
     font-weight: bold;
+    text-align: right
   }
 }

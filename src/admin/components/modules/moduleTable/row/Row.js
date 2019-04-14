@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Spinner from '../../../common/Spinner';
 import { withRouter } from 'react-router-dom'
 import cn from 'classnames';
 import styles from './Row.module.scss';
@@ -10,7 +11,8 @@ import getCell from '../../../common/cells/getCell';
 class Row extends Component {
 
     state = {
-        editMode: false
+        editMode: false,
+        isLoading: false
     };
 
     goBack = () => {
@@ -22,8 +24,12 @@ class Row extends Component {
     };
 
     saveRow = () => {
-        this.props.saveRow();
-        this.goBack();
+        this.setState({ isLoading: true });
+        this.props.saveRow()
+            .then(() => {
+                this.setState({ isLoading: false });
+                this.goBack();
+            });
     };
 
 
@@ -43,23 +49,26 @@ class Row extends Component {
                 </div>
             )
         });
-        return (
-            <div className={commonStyles.page}>
-                <div className={commonStyles.page__title}>
-                    {editMode ? 'Режим редактирования записи' : 'Режим просмотра записи'}
-                </div>
-                <div className={cn(styles.Row, commonStyles.page__content)}>
-                    <div className={styles.Row__table}>
-                        {row}
+        return this.state.isLoading
+            ? 'Loading'
+            : (
+                <div className={commonStyles.page}>
+                    <div className={commonStyles.page__title}>
+                        {editMode ? 'Режим редактирования записи' : 'Режим просмотра записи'}
                     </div>
-                    {editMode
-                        ? <button className={commonStyles.button} onClick={this.saveRow}>Сохранить</button>
-                        : <button className={commonStyles.button} onClick={this.toggleEditMode}>Редактировать</button>
-                    }
-                    <button className={commonStyles.button} onClick={this.goBack}>Назад</button>
+                    <div className={cn(styles.Row, commonStyles.page__content)}>
+                        <div className={styles.Row__table}>
+                            {row}
+                        </div>
+                        {editMode
+                            ? <button className={commonStyles.button} onClick={this.saveRow}>Сохранить</button>
+                            :
+                            <button className={commonStyles.button} onClick={this.toggleEditMode}>Редактировать</button>
+                        }
+                        <button className={commonStyles.button} onClick={this.goBack}>Назад</button>
+                    </div>
                 </div>
-            </div>
-        );
+            );
     }
 }
 

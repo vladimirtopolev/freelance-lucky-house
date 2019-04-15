@@ -17,6 +17,8 @@ import bouncesByUser from './bouncesByUser';
 
 import commonOverview from './commonOverview';
 
+import usersByDate from './usersByDate';
+
 module.exports = {
     usersByType,
     usersByCountry,
@@ -35,5 +37,7 @@ module.exports = {
 
     bouncesByUser,
 
-    commonOverview
+    commonOverview,
+
+    usersByDate
 };

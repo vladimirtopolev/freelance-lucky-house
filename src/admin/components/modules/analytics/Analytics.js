@@ -6,10 +6,11 @@ import PieContainer from './modules/common/PieContainer';
 import DateRangePicker from './modules/DateRangePicker';
 import CommonAnalytics from './modules/CommonAnalytics';
 import StatisticByPages from './modules/StatisticByPages';
+import UsersByDate from './modules/UsersByDate';
 
 import SessionDevicesLegend from './modules/legends/SessionDevicesLegend';
 import UserTypeLegend from './modules/legends/UserTypeLegend';
-import {subDays} from 'date-fns';
+import { subDays } from 'date-fns';
 
 export default () => {
     const [startDate, changeStartDate] = useState(subDays(new Date(), 365));
@@ -29,6 +30,12 @@ export default () => {
                 startDate={startDate}
                 endDate={endDate}
             />
+            <div>
+                <UsersByDate
+                    startDate={startDate}
+                    endDate={endDate}
+                />
+            </div>
             <div className={styles.Analytics__row}>
                 <div className={styles.Analytics__cell}>
                     <PieContainer

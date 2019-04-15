@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
-import moment from 'moment';
 import * as V from 'victory';
 import _ from 'lodash';
 

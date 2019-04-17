@@ -4,7 +4,7 @@ import getGoogleReport from './common/hooks/getGoogleReport'
 import * as V from 'victory';
 import _ from 'lodash';
 
-import { VictoryChart, VictoryStack, VictoryArea, VictoryAxis } from 'victory';
+import { VictoryChart, VictoryStack, VictoryArea, VictoryAxis, VictoryLabel } from 'victory';
 
 
 export default ({ startDate, endDate }) => {
@@ -29,14 +29,15 @@ export default ({ startDate, endDate }) => {
             const timeDate = time.format('YYYYMMDD');
             const metrics = _.get(rawRows.find(row => row.dimensions[0] === timeDate), 'metrics[0].values');
             return {
-                users: memo.users.concat({ x: time.format('DD/MM/YYYY'), y: metrics ? +metrics[0] : 0 }),
-                newUsers: memo.users.concat({ x: time.format('DD/MM/YYYY'), y: metrics ? +metrics[1] : 0 }),
+                users: memo.users.concat({ x: time.format('DD/MM/YY'), y: metrics ? +metrics[0] : 0 }),
+                newUsers: memo.users.concat({ x: time.format('DD/MM/YY'), y: metrics ? +metrics[1] : 0 }),
             }
         }, { users: [], newUsers: [] });
 
         return (
             <VictoryChart>
-                <VictoryAxis/>
+                <VictoryAxis
+                    tickLabelComponent={<VictoryLabel angle={-45} dx={-30} dy={-15}/>}/>
                 <VictoryAxis dependentAxis />
                 <VictoryStack>
                     <VictoryArea

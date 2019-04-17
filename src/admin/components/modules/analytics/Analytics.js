@@ -30,7 +30,7 @@ export default () => {
                 startDate={startDate}
                 endDate={endDate}
             />
-            <div>
+            <div style={{width: 500}}>
                 <UsersByDate
                     startDate={startDate}
                     endDate={endDate}

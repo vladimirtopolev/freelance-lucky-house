@@ -5,6 +5,7 @@ import Editor from '../Editor';
 
 export default function TextareaCell({ cell, header, editMode, changeCell }) {
     const onChange = (newValue) => {
+        console.log('TEXTEDITOR', newValue);
         changeCell(newValue);
     };
 

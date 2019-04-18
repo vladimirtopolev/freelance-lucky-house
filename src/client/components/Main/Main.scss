@@ -24,6 +24,10 @@ body, #root {
   height: 100%;
 }
 
+.wrapper_noScroll {
+  overflow: hidden;
+}
+
 .content {
   flex: 1 0 auto;
 }
@@ -90,229 +94,13 @@ body, #root {
     padding: 0 20px;
   }
 
-  &__makeOrderBtn{
-    width:100%
+  &__makeOrderBtn {
+    width: 100%
   }
 }
 
 $navbar-vertical-padding: 10px;
 // main view
-.main-view {
-  color: $secondary-color;
-  width: 100%;
-  min-height: 100vh;
-  background: linear-gradient(to right, rgba(23, 99, 157, 1) 0%, rgba(23, 99, 157, 0) 60%, rgba(23, 99, 157, 0) 100%),
-  linear-gradient(to bottom, rgba(23, 99, 157, 1) 0%, rgba(23, 99, 157, 0) 40%, rgba(23, 99, 157, 0) 100%),
-  fixed url("../../../img/slider-bg.jpg") center;
-  background-size: cover;
-
-  &__header {
-    padding-bottom: 20px;
-  }
-}
-
-.navigation {
-
-  &__logo {
-    padding-top: 15px;
-    display: block;
-  }
-
-  &__container {
-    display: flex;
-    @extend .container;
-  }
-
-  &__bar {
-    padding-left: 50px;
-    flex-grow: 2;
-  }
-  &.navigation_secondary {
-    background: #17639d;
-  }
-}
-
-.logo {
-  max-height: 80px;
-}
-
-.main-navbar {
-  display: flex;
-  height: 100%;
-  list-style-type: none;
-
-  &__item {
-    margin-right: 30px;
-    position: relative;
-
-    &:before {
-      position: absolute;
-      right: -17px;
-      top: 50%;
-      content: '';
-      display: block;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: $primary-color;
-      margin-top: $navbar-vertical-padding/2 - 4;
-    }
-
-    &:last-child {
-      &:before {
-        display: none;
-      }
-    }
-  }
-
-  &__link {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    color: #ffffff;
-    font-size: 20px;
-    font-weight: bolder;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: $navbar-vertical-padding;
-
-    &:hover {
-      background: $primary-color;
-      color: $secondary-color;
-      text-decoration: none;
-    }
-  }
-}
-
-.navbar-contact {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  padding-bottom: 15px;
-
-  &__label {
-    width: 50px;
-    height: 100%;
-    position: relative;
-    margin-right: 10px;
-
-    &:after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 25px;
-      display: block;
-      background: $primary-color;
-    }
-
-    &:before {
-      content: "";
-      position: absolute;;
-      bottom: 0;
-      height: 50px;
-      width: 100%;
-      border-radius: 50%;
-      background: $primary-color;
-    }
-  }
-
-  &__icon {
-    position: absolute;
-    z-index: 100;
-    height: 40px;
-    width: 40px;
-    border: 2px solid #fff;
-    color: #fff;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 35px;
-    font-size: 20px;
-    bottom: 5px;
-    left: 5px;
-  }
-
-  &__description {
-    padding-top: $navbar-vertical-padding;
-    color: #fff;
-    font-weight: bold;
-    font-size: 24px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-  }
-
-  &__description-item {
-    padding: 5px;
-  }
-
-  &__description-icon{
-    max-width: 24px;
-    margin-right: 7px;
-  }
-}
-
-.main-slider {
-  &__content {
-    @extend .container;
-  }
-  margin-top: 5%;
-}
-
-.main-description {
-  &__title {
-    font-size: 50px;
-    font-weight: bold;
-    text-transform: uppercase;
-    position: relative;
-    color: #fff;
-    padding: 10px 0;
-
-    &:before {
-      content: '';
-      width: 80px;
-      height: 6px;
-      background: $primary-color;
-      bottom: 0;
-      left: 0;
-      position: absolute;
-    }
-  }
-
-  &__content {
-    margin-top: 30px;
-  }
-
-  &__item {
-    font-size: 24px;
-    color: #fff;
-    padding: 5px 10px 5px 60px;
-    position: relative;
-    margin-bottom: 10px;
-
-    &:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 40px;
-      height: 40px;
-      background: url("../../../img/check.png");
-    }
-  }
-
-  &__bar {
-    margin-top: 30px;
-  }
-  &__btn {
-    font-weight: bold;
-    font-size: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-}
-
 
 // ADVANTAGES
 .advantages {

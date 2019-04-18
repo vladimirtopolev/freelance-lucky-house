@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import cn from 'classnames';
 
-import Navigation from './Navigation/Navigation';
+import MainView from './MainView/MainView';
 import AboutUs from './AboutUs/AboutUs';
-import MakeOrder from '../MakeOrder/MakeOrder';
 import Projects from './Projects/Projects';
 import Workflow from './Workflow/Workflow';
 import Subscriptions from './Subscriptions/Subscriptions';
@@ -18,50 +18,30 @@ import { getProperties } from '../../reducers/properties';
 
 
 class App extends Component {
+    state = {
+        scrollWrapper: true
+    };
+
     componentDidMount() {
         this.props.dispatch(fetchProperties());
     }
 
     render() {
         return (
-            <div className="wrapper">
-                <div className="content">
-                    <div className="main-view">
-                        <div className="main-view__header">
-
-                            <Navigation {...this.props}/>
-                            <div className="main-slider">
-                                <div className="main-slider__content">
-                                    <div className="main-descriptions">
-                                        <div className="main-description__title">
-                                            Все для вашей дачи
-                                        </div>
-                                        <div className="main-description__content">
-                                            <div className="main-description__item">Дома, бани (брус, каркас,
-                                                газобетон)
-                                            </div>
-                                            <div className="main-description__item">Веранды, беседки, хозпостройки</div>
-                                            <div className="main-description__item">Фудаменты, кровля, заборы</div>
-                                            <div className="main-description__item">Ремонт, отделочные работы</div>
-                                        </div>
-                                        <div className="main-description__bar">
-                                            <MakeOrder/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
+            <div className={cn('wrapper', { ['wrapper_noScroll']: !this.state.scrollWrapper })}>
+                <MainView
+                    toggleWrapperScroll={(newState) => {
+                        this.setState({scrollWrapper: newState})
+                    }}
+                    {...this.props}
+                    />
                 <AboutUs {...this.props}/>
-                <Projects />
-                <Advantages />
-                <Subscriptions />
-                <Workflow />
+                <Projects/>
+                <Advantages/>
+                <Subscriptions/>
+                <Workflow/>
                 <Feedbacks/>
-                <Footer {...this.props}/>
+                {/* <Footer {...this.props}/>*/}
             </div>
         );
     }

@@ -1,0 +1,83 @@
+$primary-color: #fca12a;
+$secondary-color: #17639d;
+$text-color: #717274;
+$text-color-secondary: #24292e;
+
+.MainView {
+  color: $secondary-color;
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(to right, rgba(23, 99, 157, 1) 0%, rgba(23, 99, 157, 0) 60%, rgba(23, 99, 157, 0) 100%),
+  linear-gradient(to bottom, rgba(23, 99, 157, 1) 0%, rgba(23, 99, 157, 0) 40%, rgba(23, 99, 157, 0) 100%),
+  fixed url("../../../../img/slider-bg.jpg") center;
+  background-size: cover;
+
+  &__header {
+    padding-bottom: 20px;
+  }
+}
+
+.MainSlider {
+  margin-top: 5%;
+  &__content{
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1224px;
+  }
+}
+
+.MainDescription {
+  &__title {
+    font-size: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    color: #fff;
+    padding: 10px 0;
+
+    &:before {
+      content: '';
+      width: 80px;
+      height: 6px;
+      background: $primary-color;
+      bottom: 0;
+      left: 0;
+      position: absolute;
+    }
+  }
+
+  &__content {
+    margin-top: 30px;
+  }
+
+  &__item {
+    font-size: 24px;
+    color: #fff;
+    padding: 5px 10px 5px 60px;
+    position: relative;
+    margin-bottom: 10px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 40px;
+      height: 40px;
+      background: url("../../../../img/check.png");
+    }
+  }
+
+  &__bar {
+    margin-top: 30px;
+  }
+  &__btn {
+    font-weight: bold;
+    font-size: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

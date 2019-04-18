@@ -6,7 +6,7 @@ import styles from './Footer.module.scss';
 
 export default ({properties}) => {
     const phone1 = getPropertyValue(properties, 'phone1');
-    const phone2 = getPropertyValue(properties, 'phone1');
+    const phone2 = getPropertyValue(properties, 'phone2');
 
     const mail = getPropertyValue(properties, 'mail');
     const copyright = getPropertyValue(properties, 'copyright');

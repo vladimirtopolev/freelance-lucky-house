@@ -1,22 +1,44 @@
 import React, { Component } from 'react';
-import TinyMCE from 'react-tinymce';
+import { Editor } from '@tinymce/tinymce-react';
+
+const {tinymce} = window;
 
 
-export default class Editor extends Component {
-    onChange = (e) => {
-        this.props.onChange(e.target.getContent());
+export default class EditorComponent extends Component {
+
+    state = {
+        content: ''
+    };
+
+    onChange = (content) => {
+        this.setState({ content });
     };
 
     render() {
         return (
             <div>
-                <TinyMCE
-                    content={this.props.value}
-                    config={{
+                <Editor
+                    value={this.state.content}
+                    init={{
                         menubar: false,
-                        branding: false
+                        branding: false,
+                        statusbar: false,
+                        theme: 'modern',
+                        language: 'ru',
+                        language_url: window.location.origin + '/js/tinymce/langs/ru.js',
+                        removeformat : [
+                            {selector : '*', remove: 'all'}
+                        ]
                     }}
-                    onChange={this.onChange}/>
+                    plugins='table textcolor colorpicker link anchor paste'
+                    toolbar={
+                        'undo redo | removeformat | bold italic underline strikethrough | subscript superscript | ' +
+                        'table  quicklink blockquote | ' +
+                        ' forecolor backcolor forecolorpicker | link anchor |  ' +
+                        'alignleft alignright aligncenter alignjustify | ' +
+                        'bullist numlist | fullscreen preview'
+                    }
+                    onSelectionChange={this.onChange}/>
             </div>
         );
     }

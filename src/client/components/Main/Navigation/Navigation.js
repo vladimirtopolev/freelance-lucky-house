@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import NavigationLink from './NavigationLink';
 import cn from 'classnames';
 import { getPropertyValue } from '../../../utilities/properties'
 import styles from './Navigation.module.scss';
@@ -20,6 +20,11 @@ export default function ({ properties, isSecondary, toggleWrapperScroll }) {
         mediaQueryListener.addListener(toggleScroll);
     }, []);
 
+    const toggleNavigationEvent = () => {
+        toggleNavigation(!isOpen);
+        toggleWrapperScroll(isOpen);
+    };
+
 
 
     const phone1 = getPropertyValue(properties, 'phone1');
@@ -37,10 +42,7 @@ export default function ({ properties, isSecondary, toggleWrapperScroll }) {
                     </a>
                     <div className={styles.Navigation__toggleButtonContainer}>
                         <button className={styles.Navigation__toggleButton}
-                                onClick={() => {
-                                    toggleNavigation(!isOpen);
-                                    toggleWrapperScroll(isOpen);
-                                }}>
+                                onClick={toggleNavigationEvent}>
                             <i className="fas fa-bars"></i>
                         </button>
                     </div>
@@ -50,14 +52,22 @@ export default function ({ properties, isSecondary, toggleWrapperScroll }) {
                     <div className={styles.Navigation__bar}>
                         <ul className={styles.MainNavbar}>
                             <li className={styles.MainNavbar__item}>
-                                <Link to="/projects" className={styles.MainNavbar__link}>
+                                <NavigationLink
+                                    to="/projects"
+                                    className={styles.MainNavbar__link}
+                                    callBackAfterClick={toggleNavigationEvent}
+                                >
                                     Проекты
-                                </Link>
+                                </NavigationLink>
                             </li>
                             <li className={styles.MainNavbar__item}>
-                                <Link to="/feedbacks" className={styles.MainNavbar__link}>
+                                <NavigationLink
+                                    to="/feedbacks"
+                                    className={styles.MainNavbar__link}
+                                    callBackAfterClick={toggleNavigationEvent}
+                                >
                                     Отзывы
-                                </Link>
+                                </NavigationLink>
                             </li>
                         </ul>
                     </div>

@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@babel/register": "^7.0.0",
+    "@tinymce/tinymce-react": "^3.0.1",
     "async": "^2.6.2",
     "axios": "^0.18.0",
     "bcrypt-nodejs": "0.0.3",

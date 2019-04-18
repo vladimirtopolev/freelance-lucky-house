@@ -13,9 +13,10 @@ export default class EditorComponent extends Component {
         }
     }
 
-    onChange = (content) => {
-        this.setState({ content });
+    onChange = (e) => {
+        this.props.onChange(e.target.getContent());
     };
+
 
     render() {
         return (
@@ -41,7 +42,7 @@ export default class EditorComponent extends Component {
                         'alignleft alignright aligncenter alignjustify | ' +
                         'bullist numlist | fullscreen preview'
                     }
-                    onSelectionChange={this.onChange}/>
+                    onChange={this.onChange}/>
             </div>
         );
     }

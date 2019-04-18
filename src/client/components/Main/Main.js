@@ -41,7 +41,7 @@ class App extends Component {
                 <Subscriptions/>
                 <Workflow/>
                 <Feedbacks/>
-                {/* <Footer {...this.props}/>*/}
+                <Footer {...this.props}/>
             </div>
         );
     }

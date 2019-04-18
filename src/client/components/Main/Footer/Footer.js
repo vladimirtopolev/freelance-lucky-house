@@ -29,13 +29,13 @@ export default ({properties}) => {
                         <div className={styles.Footer__itemContact}>
                             <img src={require('../../../../img/mts.png')}
                                  alt="mts"
-                                 className="navbar-contact__description-icon"/>
+                                 className={styles.Footer__phoneOperator}/>
                             {phone1}
                         </div>
                         <div className={styles.Footer__itemContact}>
                             <img src={require('../../../../img/megaphone.png')}
                                  alt="mts"
-                                 className="navbar-contact__description-icon"/>
+                                 className={styles.Footer__phoneOperator}/>
                             {phone2}
                         </div>
                         <div  className={styles.Footer__itemContact}>

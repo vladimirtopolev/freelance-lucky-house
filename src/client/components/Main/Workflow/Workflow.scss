@@ -33,14 +33,20 @@ $text-color-secondary: #24292e;
     text-transform: uppercase;
     font-weight: bold;
     font-size: 20px;
+    margin-bottom: 20px;
   }
 
   &__itemLine {
-    margin-top: 40px;
+    margin-top: 20px;
     margin-bottom: 20px;
     height: 0;
     border-top: 4px dashed $primary-color;
     position: relative;
+    margin-right:-30px;
+
+    @media (max-width: 992px) {
+      display: none;
+    }
 
     &:after {
       content: '';
@@ -63,6 +69,9 @@ $text-color-secondary: #24292e;
       right: 0;
       position: absolute;
       background: $primary-color;
+    }
+    .workflow__itemLine{
+      margin-right: 0;
     }
   }
 }

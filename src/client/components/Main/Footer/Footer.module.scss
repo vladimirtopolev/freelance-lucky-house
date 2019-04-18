@@ -3,6 +3,8 @@ $secondary-color: #17639d;
 $text-color: #717274;
 $text-color-secondary: #24292e;
 
+$breakpoint: 900px;
+
 .Footer {
   background: $text-color-secondary;
 
@@ -15,10 +17,18 @@ $text-color-secondary: #24292e;
     max-width: 1224px;
   }
 
+  &__logo{
+    display: flex;
+    justify-content: center;
+  }
+
   &__header {
     padding-top: 20px;
     padding-bottom: 20px;
     display: flex;
+    @media (max-width: $breakpoint) {
+      flex-direction: column;
+    }
   }
 
   &__socials {
@@ -26,10 +36,14 @@ $text-color-secondary: #24292e;
     flex-grow: 1;
     align-items: center;
     justify-content: center;
+    margin: 20px;
   }
 
   &__contacts {
     color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   &__itemContact {
@@ -40,6 +54,11 @@ $text-color-secondary: #24292e;
 
   &__itemContactLabel {
     margin-right: 10px;
+  }
+
+  &__phoneOperator{
+    max-width: 24px;
+    margin-right: 7px;
   }
 
   &__copyright {
@@ -111,3 +130,4 @@ $text-color-secondary: #24292e;
     }
   }
 }
+

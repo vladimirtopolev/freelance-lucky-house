@@ -8,7 +8,7 @@ export default ({row}) => {
     const feedback = moduleUtilities.findRowCell('feedback', row).value;
 
     return (
-        <div className="feedback col-4">
+        <div className="feedback col-md-4">
             <div className="feedback__img">
                 <img src={image}/>
             </div>

@@ -44,8 +44,14 @@ $toggleBreakPoint: 900px;
 
   &__toggleButton {
     height: 100%;
-    font-size: 20px;
+    font-size: 30px;
     color: #fff;
+    background: none;
+    border: none;
+
+    &:visited, &:focus{
+      outline: none;
+    }
   }
 
   &__togglePart {

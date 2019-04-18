@@ -8,7 +8,7 @@ export default () => {
                     Преимущества
                 </div>
                 <div className="advantages__content row">
-                    <div className="col-4">
+                    <div className="col-md-4">
                         <div className="advantage">
                             <div className="advantage__label">
                                 <img className="advantage__img" src={require('../../../../img/advantage03.png')}/>
@@ -21,7 +21,7 @@ export default () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-4">
+                    <div className="col-md-4">
                         <div className="advantage">
                             <div className="advantage__label">
                                 <img className="advantage__img" src={require('../../../../img/advantage01.png')}/>
@@ -34,7 +34,7 @@ export default () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-4">
+                    <div className="col-md-4">
                         <div className="advantage">
                             <div className="advantage__label">
                                 <img className="advantage__img" src={require('../../../../img/advantage04.png')}/>

@@ -6,9 +6,12 @@ const {tinymce} = window;
 
 export default class EditorComponent extends Component {
 
-    state = {
-        content: ''
-    };
+    constructor(props){
+        super(props);
+        this.state = {
+            content: props.value
+        }
+    }
 
     onChange = (content) => {
         this.setState({ content });

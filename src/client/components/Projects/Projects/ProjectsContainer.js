@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import ExtractModuleData from '../../common/ExtractModuleTable';
 import ResetWindowScroll from '../../common/ResetWindowScroll'
 
@@ -12,6 +12,6 @@ const Projects = ({ rows }) => {
             {rows.map((row, i) => <ProjectItem key={i} row={row}/>)}
         </div>
     );
-}
+};
 
 export default ResetWindowScroll(ExtractModuleData('projects')(Projects));

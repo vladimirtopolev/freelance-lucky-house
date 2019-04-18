@@ -18,14 +18,25 @@
     padding-top: 15px;
     padding-bottom: 15px;
     display: flex;
+
+    @media (max-width: 900px) {
+      flex-direction: column;
+    }
   }
 
   &__leftSidebar{
     min-width: 230px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
   }
 
   &__page{
     padding: 0 20px;
     width: 100%;
+  }
+
+  &_noScroll{
+    overflow: hidden;
   }
 }

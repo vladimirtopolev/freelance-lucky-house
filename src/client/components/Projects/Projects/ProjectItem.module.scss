@@ -5,6 +5,10 @@
 
   position: relative;
 
+  @media (max-width: 700px) {
+    flex-direction: column;
+  }
+
   &__descriptionContainer {
 
   }
@@ -22,12 +26,18 @@
   }
 
   &__imageContainer {
-    width: 250px;
-    min-width: 250px;
+    width: 100%;
+    max-width: 250px;
+    @media (max-width: 700px) {
+      max-width: none;
+      margin-bottom: 10px;
+    }
   }
 
   &__image {
-    width: 100%;
+    display: block;
+    max-width: 100%;
+    height: auto;
   }
 
   &__descriptionContainer {

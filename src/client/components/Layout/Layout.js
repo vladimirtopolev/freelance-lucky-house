@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import cn from 'classnames';
 import { Switch, Route } from 'react-router-dom';
 
 import Feedbacks from '../Feedbacks/Feedbacks';
@@ -13,21 +14,31 @@ import { fetchProperties } from "../../actions/properties";
 
 
 import styles from './Layout.module.scss';
+import MainView from '../Main/MainView/MainView';
 
 
 class Layout extends Component {
+    state = {
+        scrollWrapper: true
+    };
+
     componentDidMount() {
         this.props.dispatch(fetchProperties());
     }
 
     render() {
         return (
-            <div className={styles.Layout}>
+            <div className={cn(styles.Layout, { [styles.Layout_noScroll]: !this.state.scrollWrapper })}>
                 <div className={styles.Layout__contentContainer}>
-                    <Navigation {...this.props} isSecondary={true} className="navigation_secondary"/>
-                    <div className={styles.Layout__content}>
-                        <div className={styles.Layout__leftSidebar}>
-                            <MakeOrder />
+                    <Navigation {...this.props}
+                                isSecondary={true}
+                                toggleWrapperScroll={(newState) => {
+                                    this.setState({scrollWrapper: newState})
+                                }}
+                    />
+                    <div className={cn(styles.Layout__content)}>
+                        <div className={cn(styles.Layout__leftSidebar)}>
+                            <MakeOrder/>
                         </div>
                         <div className={styles.Layout__page}>
                             <Switch>

@@ -21,12 +21,12 @@ $toggleBreakPoint: 900px;
   }
 
   &__logo {
-    padding-top: 15px;
     display: block;
 
   }
   &__logoContainer {
-    height: 95px;
+    padding: 15px 0;
+    height: 110px;
     display: flex;
     @media (max-width: $toggleBreakPoint) {
       width: 100%;

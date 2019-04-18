@@ -3,6 +3,9 @@
   display: flex;
   margin-bottom: 30px;
 
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
   &__imageContainer {
     padding: 15px;
   }
@@ -10,6 +13,8 @@
   &__image {
     width: 200px;
     border-radius: 50%;
+    display: block;
+    margin: 0 auto;
   }
 
   &__content {
@@ -25,6 +30,11 @@
       background: #fca12a;
       left: 0;
       bottom: 0;
+
+      @media (max-width: 800px) {
+        left: 50%;
+        margin-left: -150px;
+      }
     }
 
   }
@@ -32,11 +42,17 @@
   &__personName {
     font-size: 18px;
     font-weight: bold;
+    @media (max-width: 800px) {
+      text-align: center;
+    }
   }
 
   &__date {
     font-size: 12px;
     color: #717274;
+    @media (max-width: 800px) {
+      text-align: center;
+    }
   }
 
   &__text {

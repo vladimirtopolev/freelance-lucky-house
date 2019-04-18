@@ -1,18 +1,22 @@
 $primary-color: #fca12a;
 
+.ProjectContainer {
+  width: 100%;
+}
+
 .ProjectItem {
   width: 100%;
 
   &__descriptionContainer {
     display: flex;
     margin-bottom: 10px;
+
+    @media (max-width: 1200px) {
+      flex-direction: column;
+    }
   }
 
-  &__imageContainer {
-    width: 500px;
-    min-width: 500px;
-    padding: 20px 10px;
-  }
+
 
   &__image {
     width: 100%;
@@ -22,6 +26,7 @@ $primary-color: #fca12a;
     padding: 20px 40px;
     background: #efefef;
   }
+
   &__detailsContainer {
     width: 100%;
   }
@@ -52,7 +57,9 @@ $primary-color: #fca12a;
   }
 
   &__imageGallery {
-    width: 600px;
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto 10px;
   }
 
   &__imageZoomBtn {
@@ -74,7 +81,7 @@ $primary-color: #fca12a;
   &__image {
     display: block;
     width: 100%;
-    height: 450px;
+    height: 100%;
     position: absolute;
     top: 0;
     left: 0;
@@ -84,8 +91,11 @@ $primary-color: #fca12a;
 
   &__imageContainer {
     height: 0;
-    padding-top: 450px;
+    padding-top: 70%;
+    overflow: hidden;
     position: relative;
+    width: 100%;
+    max-width: 600px;
 
     &:hover {
       & .ProjectItem__imageZoomBtn {
@@ -95,13 +105,14 @@ $primary-color: #fca12a;
 
   }
 
+
   &__description {
     margin-top: 10px;
     margin-bottom: 30px;
     text-align: justify;
   }
 
-  &__descriptionTitle{
+  &__descriptionTitle {
     font-size: 16px;
   }
 }

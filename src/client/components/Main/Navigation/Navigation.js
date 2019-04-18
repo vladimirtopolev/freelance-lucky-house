@@ -20,12 +20,10 @@ export default function ({ properties, isSecondary, toggleWrapperScroll }) {
         mediaQueryListener.addListener(toggleScroll);
     }, []);
 
-    const toggleNavigationEvent = () => {
-        toggleNavigation(!isOpen);
-        toggleWrapperScroll(isOpen);
+    const returnDefaultNavigationState = () => {
+        toggleNavigation(false);
+        toggleWrapperScroll(true);
     };
-
-
 
     const phone1 = getPropertyValue(properties, 'phone1');
     const phone2 = getPropertyValue(properties, 'phone2');
@@ -42,7 +40,10 @@ export default function ({ properties, isSecondary, toggleWrapperScroll }) {
                     </a>
                     <div className={styles.Navigation__toggleButtonContainer}>
                         <button className={styles.Navigation__toggleButton}
-                                onClick={toggleNavigationEvent}>
+                                onClick={() => {
+                                    toggleNavigation(!isOpen);
+                                    toggleWrapperScroll(isOpen);
+                                }}>
                             <i className="fas fa-bars"></i>
                         </button>
                     </div>
@@ -55,7 +56,7 @@ export default function ({ properties, isSecondary, toggleWrapperScroll }) {
                                 <NavigationLink
                                     to="/projects"
                                     className={styles.MainNavbar__link}
-                                    callBackAfterClick={toggleNavigationEvent}
+                                    callBackAfterClick={returnDefaultNavigationState}
                                 >
                                     Проекты
                                 </NavigationLink>
@@ -64,7 +65,7 @@ export default function ({ properties, isSecondary, toggleWrapperScroll }) {
                                 <NavigationLink
                                     to="/feedbacks"
                                     className={styles.MainNavbar__link}
-                                    callBackAfterClick={toggleNavigationEvent}
+                                    callBackAfterClick={returnDefaultNavigationState}
                                 >
                                     Отзывы
                                 </NavigationLink>
